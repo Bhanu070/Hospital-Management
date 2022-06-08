@@ -1928,7 +1928,7 @@ namespace Hospital_Management.AppCode
                 List<ListItem> items = new List<ListItem>
                      {
                              new ListItem{ Text="OPD", Value = "OPD" },
-                             new ListItem{ Text="IPD", Value = "IPD" },
+                             new ListItem{ Text="General Ward", Value = "General Ward" },
                              new ListItem{ Text="NICU", Value = "NICU" },
                              new ListItem{ Text="ICU", Value = "ICU" },
                              new ListItem{ Text="PICU", Value = "PICU" },
