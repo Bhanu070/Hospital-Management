@@ -1,0 +1,138 @@
+﻿@model Hospital_Management.Models.MainModel
+@{
+    ViewBag.Title = "Service Type Master";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card card-custom">
+    <div class="alert font-size-h3 text-center" style="background-color:#2ac9bb; color:white; font-family: Georgia, serif">
+        Service Type Master
+    </div>
+
+
+
+    <div class="card-body">
+        @using (Html.BeginForm("SaveService", "Hospital", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", @id = "form_sample_2" }))
+        {
+            <input type="hidden" id="Id" name="Id" value="@Model.Service_type_Master.ServiceId  " />
+            <div class="form-group row">
+                <div class="col-lg-4">
+                    <label>Service Type :<span style="color:red;"></span> </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-users"></i></span></div>
+                        @Html.DropDownList("drpservice", (SelectList)ViewBag.servicetype, "Select Servie Type", new { @class = "form-control", @required = "required" })
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <label>Service Name<span style="color:red;">*</span>:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-list-alt"></i></span></div>
+                        <input type="text" placeholder="Enter Service Name" class="form-control" name="ServiceName" id="ServiceName" value="@Model.Service_type_Master.ServiceName" required />
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <label>Price <span style="color:red;">*</span>:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-rupee-sign"></i></span></div>
+                        <input type="number" placeholder="Enter Price" class="form-control" name="Price" id="Price" value="@Model.Service_type_Master.Price" required />
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <label>Discount <span style="color:red;">*</span>:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-money-bill"></i></span></div>
+                        <input type="number" placeholder="Enter Discount" class="form-control" name="Discount" id="Discount" value="@Model.Service_type_Master.Discount" required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-7">
+                        <button type="submit" class="btn" style="background-color:#2ac9bb; color:white; width:200px"> <span class="fa fa-save"></span> @ViewBag.buttontitle</button>
+                        &nbsp;&nbsp;
+                        @*<a href="/Hospital/ServiceType?Id=00000000-0000-0000-0000-000000000000" class="btn btn-danger"><span class="fa fa-times"></span> Cancel</a>*@
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+
+
+
+
+    <div class="card-body" id="Div_Data">
+        @{Html.RenderPartial("~/Views/HospitalPartial/_ServiceType.cshtml", @Model);}
+    </div>
+</div>
+
+
+
+<script>
+    function GetProperty() {
+        var Id = $('#drpservice').val();
+        //alert(Id);
+        if (Id != "") {
+            $.ajax({
+                url: '/Hospital/GetAllService',
+                dataType: "json",
+                type: "POST",
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ Id: Id }),
+                async: true,
+                processData: false,
+                cache: false,
+                success: FillProperty,
+                error: function (xhr) {
+                }
+            });
+        }
+    }
+
+    function FillProperty(result) {
+        var SubDistrictList = result.SubDistrictList;
+        var select = $("#drpproptyname");
+        if (select != null) {
+            select.empty();
+            select.append($('<option/>', {
+                value: "",
+                text: "Select Property"
+            }));
+            for (i = 0; i < SubDistrictList.length; i++) {
+                select.append($('<option/>', {
+                    value: SubDistrictList[i].Id,
+                    text: SubDistrictList[i].PropName
+                }));
+            }
+        }
+    }
+</script>
+
+@*<script type="text/javascript">
+    $('#drpservice').change(function () {
+        var SalarySource = $('#drpservice').val(); 
+        if (SalarySource != "") {
+            $.ajax({
+                url: '/Hospital/GetServices',
+                dataType: "json",
+                type: "POST",
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ service: SalarySource }),
+                async: true,
+                processData: false,
+                cache: false,
+                success: function (data) {
+                    $('#Div_Data').empty();
+                    $('#Div_Data').append(data);
+                },
+                error: function (xhr) {
+                    $('#Div_Data').empty();
+                    $('#Div_Data').append(xhr.responseText);
+                }
+            });
+        }
+    });
+</script>*@

@@ -1,0 +1,299 @@
+﻿@model Hospital_Management.Models.MainModel
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (ViewBag.Role == "Employee")
+{
+<div class="card card-custom gutter-b">
+    <div class="card-header card-header-tabs-line">
+        <div class="card-toolbar">
+            <ul class="nav nav-tabs nav-bold nav-tabs-line">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#kt_tab_pane_1_4">
+                        <span class="nav-icon"><i class="flaticon2-chat-1"></i></span>
+                        <span class="nav-text">Personal Details</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#kt_tab_pane_2_4">
+                        <span class="nav-icon"><i class="flaticon2-drop"></i></span>
+                        <span class="nav-text">Qualification Details</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#kt_tab_pane_3_4">
+                        <span class="nav-icon"><i class="flaticon2-drop"></i></span>
+                        <span class="nav-text">Address Details</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#kt_tab_pane_4_4">
+                        <span class="nav-icon"><i class="flaticon2-drop"></i></span>
+                        <span class="nav-text">Professional Details</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-toolbar">
+            <div class="dropdown dropdown-inline">
+                <button type="button" class="btn btn-hover-light-primary btn-icon btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="ki ki-more-hor"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-sm">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+        <div class="card-body">
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="kt_tab_pane_1_4" role="tabpanel" aria-labelledby="kt_tab_pane_1_4">
+                    <h2>Employee Personal Details</h2>
+                    <table class="table table-striped- table-bordered table-hover table-checkable table-sm" id="table_pend">
+
+                        <tr>
+
+                            <td>
+                                Employee Name 
+  <input type="hidden" id="empid" name="empid" placeholder="Enter Remarks" value="@ViewBag.empid" />
+                            </td>
+                            <td>@Model.WAQF_HR_EMPLOYEE_INFO_PERSONAL_DETAILS.EMPNAME</td>
+                            <td>Father/Spouse Name</td>
+                            <td>@Model.WAQF_HR_EMPLOYEE_INFO_PERSONAL_DETAILS.FATHERNAME</td>
+
+                        </tr>
+                        <tr>
+
+                            <td>Gender</td>
+                            <td>@Model.WAQF_HR_EMPLOYEE_INFO_PERSONAL_DETAILS.GENDER_NAME</td>
+                            <td>Marital Status</td>
+                            <td>@Model.WAQF_HR_EMPLOYEE_INFO_PERSONAL_DETAILS.MARITAL_NAME</td>
+
+                        </tr>
+                        <tr>
+
+                            <td>Date Of Birth</td>
+                            <td>@Model.WAQF_HR_EMPLOYEE_INFO_PERSONAL_DETAILS.DOB</td>
+                            <td>Blood Group</td>
+                            <td>@Model.WAQF_HR_EMPLOYEE_INFO_PERSONAL_DETAILS.BLOODGROUP_NAME</td>
+
+                        </tr>
+                        <tr>
+
+                            <td>Adhar No.</td>
+                            <td>@Model.WAQF_HR_EMPLOYEE_INFO_PERSONAL_DETAILS.AADHAAR_NO</td>
+                            <td>Religion</td>
+                            <td>@Model.WAQF_HR_EMPLOYEE_INFO_PERSONAL_DETAILS.RELIGION_NAME</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Category</td>
+                            <td>@Model.WAQF_HR_EMPLOYEE_INFO_PERSONAL_DETAILS.CASTE_NAME</td>
+                            <td>Bank Name</td>
+                            <td>@Model.WAQF_HR_EMPLOYEE_INFO_PERSONAL_DETAILS.BANK_NAME_N</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Branch Name</td>
+                            <td>@Model.WAQF_HR_EMPLOYEE_INFO_PERSONAL_DETAILS.BRANCH_NAME_N</td>
+                            <td>IFSC Code</td>
+                            <td>@Model.WAQF_HR_EMPLOYEE_INFO_PERSONAL_DETAILS.IFSC_CODE</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Bank A/C No.</td>
+                            <td>@Model.WAQF_HR_EMPLOYEE_INFO_PERSONAL_DETAILS.SALACCOUNTNO</td>
+                            <td>CPF No.</td>
+                            <td>@Model.WAQF_HR_EMPLOYEE_INFO_PERSONAL_DETAILS.CPF_NO</td>
+
+                        </tr>
+                        <tr>
+
+                            <td>Pan no.</td>
+                            <td>@Model.WAQF_HR_EMPLOYEE_INFO_PERSONAL_DETAILS.PANNO</td>
+                            <td></td>
+                            <td></td>
+
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="kt_tab_pane_2_4" role="tabpanel" aria-labelledby="kt_tab_pane_2_4">
+                    <h2>Employee Qualification Details</h2>
+                    <table class="table table-striped- table-bordered table-hover table-checkable table-sm" id="table_pend">
+
+                        <tr>
+
+                            <td>Employee Code  </td>
+                            <td>@Model.WAQF_HR_EMPLOYEE_QUALIFICATION_DETAILS.EmpCode</td>
+                            <td>Qualification</td>
+                            <td>@Model.WAQF_HR_EMPLOYEE_QUALIFICATION_DETAILS.EmpQualification</td>
+
+                        </tr>
+                        <tr>
+
+                            <td>Passing Year</td>
+                            <td>@Model.WAQF_HR_EMPLOYEE_QUALIFICATION_DETAILS.PASSING_YEAR</td>
+                            <td>Board Name</td>
+                            <td>@Model.WAQF_HR_EMPLOYEE_QUALIFICATION_DETAILS.UNIVERSITY_SCHOOL</td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+                <div class="tab-pane fade" id="kt_tab_pane_3_4" role="tabpanel" aria-labelledby="kt_tab_pane_3_4">
+                    <h2>Employee Address Details</h2>
+                    <fieldset>
+                        <legend>Present Address</legend>
+                        <table class="table table-striped- table-bordered table-hover table-checkable table-sm" id="table_pend">
+
+                            <tr>
+
+                                <td>State</td>
+                                <td></td>
+                                <td>District</td>
+                                <td></td>
+
+                            </tr>
+                            <tr>
+
+                                <td>Sub-District</td>
+                                <td></td>
+                                <td>House/Building/Area</td>
+                                <td></td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>Pin Code</td>
+                                <td></td>
+
+
+                            </tr>
+
+                        </table>
+
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Permanent Address</legend>
+                        <table class="table table-striped- table-bordered table-hover table-checkable table-sm" id="table_pend">
+
+                            <tr>
+
+                                <td>State</td>
+                                <td></td>
+                                <td>District</td>
+                                <td></td>
+
+                            </tr>
+                            <tr>
+
+                                <td>Sub-District</td>
+                                <td></td>
+                                <td>House/Building/Area</td>
+                                <td></td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>Pin Code</td>
+                                <td></td>
+
+
+                            </tr>
+
+                        </table>
+
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Other Details</legend>
+                        <table class="table table-striped- table-bordered table-hover table-checkable table-sm" id="table_pend">
+
+                            <tr>
+
+                                <td>Email</td>
+                                <td></td>
+                                <td>LandLine No</td>
+                                <td></td>
+
+                            </tr>
+                            <tr>
+
+                                <td>Mobile No.</td>
+                                <td></td>
+
+                            </tr>
+
+
+                        </table>
+
+                    </fieldset>
+
+                </div>
+                <div class="tab-pane fade" id="kt_tab_pane_4_4" role="tabpanel" aria-labelledby="kt_tab_pane_4_4">
+                    <h2> Employee Professional Details</h2>
+
+                    <table class="table table-striped- table-bordered table-hover table-checkable table-sm" id="table_pend">
+
+                        <tr>
+
+                            <td>Department</td>
+                            <td></td>
+                            <td>Cadre</td>
+                            <td></td>
+
+                        </tr>
+                        <tr>
+
+                            <td>Designation</td>
+                            <td></td>
+                            <td>Grade</td>
+                            <td></td>
+
+                        </tr>
+                        <tr>
+
+                            <td>Salary Source</td>
+                            <td></td>
+                            <td>Basic Pay</td>
+                            <td></td>
+
+                        </tr>
+                        <tr>
+
+                            <td>Appointment Date</td>
+                            <td></td>
+                            <td>Joining Date</td>
+                            <td></td>
+
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else if (ViewBag.Role == "Admin")
+{
+    <h1>Admin</h1>
+    <br />
+    <h3>Comming Soon </h3>
+}

@@ -1,0 +1,110 @@
+﻿@model Hospital_Management.Models.LoginViewModel
+@using CaptchaMvc.HtmlHelpers;
+
+@using CaptchaMvc;
+
+
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="~/assets/commonValidation.js"></script>
+<link href="~/assets/css/style.bundle.css" rel="stylesheet" />
+
+<style type="text/css">
+    #mydiv {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 10em;
+        height: 10em;
+        margin-top: -9em; /*set to a negative number 1/2 of your height*/
+        margin-left: -15em; /*set to a negative number 1/2 of your width*/
+    }
+</style>
+
+
+
+<div class="form-content">
+
+    <div class="form-items">
+        <h3>RHC</h3>
+        <p style="color: #0093FF; font-weight:600;">Rashid Health Care</p>
+        <p>
+            @if (ViewBag.Msg != "")
+            {
+                <div class="alert alert-danger">
+                    <button class="close" data-close="alert"></button> @ViewBag.Msg
+                </div>
+            }
+        </p>
+        <div class="page-links">
+            <a href="#" class="active">Login</a>
+        </div>
+        <div class="website-logo " id="mydiv">
+            <a href="index.html">
+                <div style="display:none; text-align:center;" id="loderdiv">
+                    <img src="/assets/media/sample.gif" />
+                </div>
+                @*<div class="logo">
+                        <img class="logo-size" src="/login/images/logo-light.svg" alt="">
+                    </div>*@
+            </a>
+        </div>
+        @using (Html.BeginForm("UserLogin", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            <input class="form-control" type="text" id="mobile" name="mobile" placeholder="E-mail Address" required>
+            <input class="form-control" type="password" id="password" name="password" placeholder="Password" required>
+            @*@Html.MathCaptcha()*@
+            <br />
+            <p class="Error">  @ViewBag.ErrMessage </p>
+             @*<p class="Error">  @ViewBag.Msg </p>*@
+            <div class="form-button">
+                <button id="submit" type="submit" class="ibtn">Login</button>
+                @*<a href="/Home/Password">Forget password?</a>&nbsp;&nbsp;*@
+              
+            </div>
+        }
+        @*<div class="other-links">
+            <span>Go to Website</span><a href="#" style="text-decoration:none;" target="_blank">SRO</a>
+
+        </div>*@
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#submit").click(function () {
+            
+            $("loderdiv").show();
+            document.getElementById("loderdiv").style.display = "";
+            var data = $("myform").serialize();
+            $.ajax({
+                type: "Post",
+                url: "Home/DashBoard",
+                data: data,
+                success: FillUserDetail,
+                success: function (response) {
+                    $('#loderdiv').delay(17000).hide(4000);
+                }
+
+
+            });
+
+        })
+
+    })
+
+    document.getElementById("submit").onclick = disableScreen;
+
+    function disableScreen() {
+        // creates <div class="overlay"></div> and
+        // adds it to the DOM
+        var div = document.createElement("div");
+        div.className += "overlay";
+        document.body.appendChild(div);
+    }
+
+
+</script>

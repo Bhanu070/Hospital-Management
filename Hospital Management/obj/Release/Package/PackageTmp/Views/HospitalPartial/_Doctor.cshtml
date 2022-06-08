@@ -1,0 +1,68 @@
+﻿@model Hospital_Management.Models.MainModel
+
+@if (ViewBag.Msg != "")
+{
+    <div id="msg">
+        <h6 class="alert text-center" style="background-color:#2ac9bb; color:white">
+            @ViewBag.Msg &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="alert-dismissable" data-dismiss="alert"> <span class="fa fa-times"></span> </a>
+        </h6>
+    </div>
+}
+<script>
+    $(document).ready(function () {
+        setTimeout(function () {
+            $("#msg").fadeOut();
+        }, 5000);
+    });
+</script>
+
+
+<table class="table table-striped- table-bordered table-hover table-checkable table-sm" id="table_pend">
+    <thead>
+        <tr>
+            <th style="width:5%;">S.No. </th>
+            <th style="width:20%;"> Doctor Name </th>
+            <th style="width:20%;"> Qualification </th>
+            <th style="width:15%;"> Created By </th>
+            <th style="width:15%;"> Created On </th>
+
+            <th> Action </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int SNo = 0;
+        }
+        @foreach (var item in Model.Doctor_MasterList)
+        {
+            SNo++;
+        <tr class="odd gradeX">
+            <td> @SNo </td>
+            <td> @item.Doc_Name </td>
+            <td> @item.Qualification </td>
+            <td> @item.CreatedBy </td>
+            <td> @item.CreatedOn.ToString("dd-MM-yyyy") </td>
+
+            <td>
+                <a href="/Hospital/Doctor?Id=@item.Doc_Id  " class="btn btn-icon btn-warning btn-xs mr-1"><i class="fa fa-edit" data-container="body" data-toggle="tooltip" data-placement="top" title=""></i></a>
+                <a href="/Hospital/DeleteDoctor?Id=@item.Doc_Id  " onclick=" return confirm('Are You Sure ! Do you Want to delete ?')" class="btn btn-icon btn-youtube btn-xs mr-1"><i class="flaticon-delete" data-container="body" data-toggle="tooltip" data-placement="top" title=""></i></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<br />
+
+
+@* edit delete td
+        <td>
+        @if (Model.PermissionList.Where(s => s.MenuName == "Gender" && s.UpdateRecord == "on").ToList().Count > 0)
+        {
+            <a href="/Hospital/AddDoctor?Id=@item.Doc_Id  " class="btn btn-icon btn-warning btn-xs mr-1"><i class="fa fa-edit" data-container="body" data-toggle="tooltip" data-placement="top" title=""></i></a>
+        }
+        @if (Model.PermissionList.Where(s => s.MenuName == "Gender" && s.DeleteRecord == "on").ToList().Count > 0)
+        {
+            <a href="/Hospital/DeleteDoctor?Id=@item.Doc_Id  " onclick=" return confirm('Are You Sure ? Do you Want to delete')" class="btn btn-icon btn-youtube btn-xs mr-1"><i class="flaticon-delete" data-container="body" data-toggle="tooltip" data-placement="top" title=""></i></a>
+        }
+    </td>*@

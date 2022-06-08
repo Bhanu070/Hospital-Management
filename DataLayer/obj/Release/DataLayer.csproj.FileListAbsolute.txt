@@ -1,0 +1,9 @@
+D:\Hospital Management\Hospital Management\DataLayer\bin\Release\DataLayer.dll
+D:\Hospital Management\Hospital Management\DataLayer\bin\Release\DataLayer.pdb
+D:\Hospital Management\Hospital Management\DataLayer\bin\Release\BusinessObject.dll
+D:\Hospital Management\Hospital Management\DataLayer\bin\Release\BusinessObject.pdb
+D:\Hospital Management\Hospital Management\DataLayer\obj\Release\DataLayer.csprojAssemblyReference.cache
+D:\Hospital Management\Hospital Management\DataLayer\obj\Release\DataLayer.csproj.CoreCompileInputs.cache
+D:\Hospital Management\Hospital Management\DataLayer\obj\Release\DataLayer.csproj.CopyComplete
+D:\Hospital Management\Hospital Management\DataLayer\obj\Release\DataLayer.dll
+D:\Hospital Management\Hospital Management\DataLayer\obj\Release\DataLayer.pdb

@@ -1,0 +1,71 @@
+﻿@model Hospital_Management.Models.MainModel
+@if (ViewBag.Msg != "")
+{
+    <div class="alert alert-success">
+        <button class="close" data-close="alert"></button> @ViewBag.Msg
+    </div>
+}
+
+
+<table class="table table-striped- table-bordered table-hover table-checkable table-sm" id="table_pend">
+    <thead>
+        <tr>
+            <th style="width:5%;"> S.No </th>
+            <th style="width:20%;"> Financial Year </th>
+            <th style="width:15%;"> Status </th>
+            <th style="width:15%;"> Created By </th>
+            <th style="width:15%;"> Created On </th>
+            <th style="width:15%;"> Updated BY </th>
+            <th style="width:15%;"> Updated On </th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int SNo = 0;
+        }
+        @foreach (var item in Model.WAQF_BOARD_BUDGET_ACTIVE_FIN_YEAR_MASTERList)
+        {
+            SNo++;
+            <tr class="odd gradeX">
+                <td> @SNo </td>
+                <td> @item.CURRENT_FIN_YEAR </td>
+                <td>
+                    <a href="/Admin/ApproveFinYear?Id=@item.ID   " style="color: red;" onclick=" return confirm('Are you sure, you want to change status?'); ">
+
+                        @if (item.STATUS == true)
+                        {
+                            <span class="badge badge-success  "> Active </span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-danger"> InActive </span>
+                        }
+                    </a>
+                </td>
+                <td> @item.CreatedBy </td>
+                <td> @item.CreatedOn.ToString("dd-MM-yyyy") </td>
+                <td> @item.UpdatedBy </td>
+                <td> @item.UpdatedOn.ToString("dd-MM-yyyy") </td>
+                <td>
+                    @if (Model.PermissionList.Where(s => s.MenuName == "MenuCategory" && s.UpdateRecord == "on").ToList().Count > 0)
+                    {
+
+                        <a href="/Admin/AddActiveFinYear?Id=@item.ID  " class="btn btn-icon btn-warning btn-xs mr-1"><i class="fa fa-edit" data-container="body" data-toggle="tooltip" data-placement="top" title=""></i></a>
+
+
+                    }
+                    @if (Model.PermissionList.Where(s => s.MenuName == "MenuCategory" && s.DeleteRecord == "on").ToList().Count > 0)
+                    {
+                        <a href="/Admin/DeleteActiveFinYear?Id=@item.ID  " onclick=" return confirm('Are You Sure ? Do you Want to delete')" class="btn btn-icon btn-youtube btn-xs mr-1"><i class="flaticon-delete" data-container="body" data-toggle="tooltip" data-placement="top" title=""></i></a>
+
+
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<br />
+

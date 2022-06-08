@@ -1,0 +1,59 @@
+﻿@model Hospital_Management.Models.MainModel
+
+<table class="table table-striped- table-bordered table-hover table-checkable table-sm" id="table_pend">
+    <thead>
+        <tr>
+            <th style="width:5%; text-align:center;">S.No. </th>
+
+            <th> Service Type </th>
+            <th style="width:20%;"> Service Name </th>
+            <th> Price </th>
+            <th> Discount </th>
+
+            <th style="width:15%;"> Created By </th>
+            <th style="width:15%;"> Created On </th>
+
+            <th> Action </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int SNo = 0;
+        }
+        @foreach (var item in Model.Service_type_MasterList)
+        {
+            SNo++;
+        <tr class="odd gradeX">
+            <td align="center"> @SNo </td>
+            <td> @item.ServiceType </td>
+            <td> @item.ServiceName </td>
+
+            <td> @item.Price </td>
+            <td> @item.Discount </td>
+
+            <td> @item.CreatedBy </td>
+            <td> @item.CreatedOn.ToString("dd-MM-yyyy") </td>
+
+            <td>
+                <a href="/Hospital/servicetype?Id=@item.ServiceId  " class="btn btn-icon btn-warning btn-xs mr-1"><i class="fa fa-edit" data-container="body" data-toggle="tooltip" data-placement="top" title=""></i></a>
+                <a href="/Hospital/DeleteService?Id=@item.ServiceId  " onclick=" return confirm('Are You Sure ! Do you Want to delete ?')" class="btn btn-icon btn-youtube btn-xs mr-1"><i class="flaticon-delete" data-container="body" data-toggle="tooltip" data-placement="top" title=""></i></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<br />
+
+
+@* edit delete td
+        <td>
+        @if (Model.PermissionList.Where(s => s.MenuName == "Gender" && s.UpdateRecord == "on").ToList().Count > 0)
+        {
+            <a href="/Hospital/AddDoctor?Id=@item.Doc_Id  " class="btn btn-icon btn-warning btn-xs mr-1"><i class="fa fa-edit" data-container="body" data-toggle="tooltip" data-placement="top" title=""></i></a>
+        }
+        @if (Model.PermissionList.Where(s => s.MenuName == "Gender" && s.DeleteRecord == "on").ToList().Count > 0)
+        {
+            <a href="/Hospital/DeleteDoctor?Id=@item.Doc_Id  " onclick=" return confirm('Are You Sure ? Do you Want to delete')" class="btn btn-icon btn-youtube btn-xs mr-1"><i class="flaticon-delete" data-container="body" data-toggle="tooltip" data-placement="top" title=""></i></a>
+        }
+    </td>*@

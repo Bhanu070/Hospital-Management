@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome to RHC</title>
+    <link href="~/login/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/login/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="~/login/css/iofrm-style.css" rel="stylesheet" />
+    <link href="~/login/css/iofrm-theme4.css" rel="stylesheet" />
+    <script type="text/javascript">
+
+        //Disable Back Button In All Browsers.
+        function DisableBackButtonAllBrowsers() {
+            window.history.forward()
+        };
+        DisableBackButtonAllBrowsers();
+        window.onload = DisableBackButtonAllBrowsers;
+        window.onpageshow = function (evts) { if (evts.persisted) DisableBackButtonAllBrowsers(); };
+        window.onunload = function () { void (0) };
+    </script>
+
+</head>
+<body>
+    <div class="form-body">
+        <div class="website-logo">
+            <a href="#">
+                @*<div style="display:none; text-align:center;" id="loderdiv">
+                    <img src="~/assets/media/sample.gif" />
+                </div>*@
+                <div class="logo">
+                    <img class="logo-size" src="~/login/images/logo-light.svg" alt="">
+                </div>
+            </a>
+        </div>
+        <div class="row">
+            <div class="img-holder">
+                <div class="bg"></div>
+                <div class="info-holder">
+                   
+                    <img src="~/login/images/RHC_Final_Logo.jpg" alt="">
+                </div>
+            </div>
+            <div class="form-holder">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <script src="~/login/js/jquery.min.js"></script>
+    <script src="~/login/js/popper.min.js"></script>
+    <script src="~/login/js/bootstrap.min.js"></script>
+    <script src="~/login/js/main.js"></script>
+   
+</body>
+
+</html>

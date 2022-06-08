@@ -1,0 +1,11 @@
+D:\Hospital Management\Hospital Management\BusinessManager\bin\Release\BusinessManager.dll
+D:\Hospital Management\Hospital Management\BusinessManager\bin\Release\BusinessManager.pdb
+D:\Hospital Management\Hospital Management\BusinessManager\bin\Release\BusinessObject.dll
+D:\Hospital Management\Hospital Management\BusinessManager\bin\Release\DataLayer.dll
+D:\Hospital Management\Hospital Management\BusinessManager\bin\Release\BusinessObject.pdb
+D:\Hospital Management\Hospital Management\BusinessManager\bin\Release\DataLayer.pdb
+D:\Hospital Management\Hospital Management\BusinessManager\obj\Release\BusinessManager.csprojAssemblyReference.cache
+D:\Hospital Management\Hospital Management\BusinessManager\obj\Release\BusinessManager.csproj.CoreCompileInputs.cache
+D:\Hospital Management\Hospital Management\BusinessManager\obj\Release\BusinessManager.csproj.CopyComplete
+D:\Hospital Management\Hospital Management\BusinessManager\obj\Release\BusinessManager.dll
+D:\Hospital Management\Hospital Management\BusinessManager\obj\Release\BusinessManager.pdb

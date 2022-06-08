@@ -1,0 +1,46 @@
+﻿@model Hospital_Management.Models.MainModel
+@{
+    ViewBag.Title = "AddFinYear";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card card-custom gutter-b example example-compact">
+    <div class="card-header">
+        <h3 class="card-title">
+            Add/Update Financial Year
+        </h3>
+        <div class="card-toolbar">
+            <a href="/Admin/ActiveFinYear" class="btn btn-light-primary btn-sm font-weight-bolder mr-2">
+                <i class="fa fa-reply"></i>
+                Back
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("SaveActiveFinYear", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", @id = "form_sample_2" }))
+        {
+            <input type="hidden" id="Id" name="Id" value="@Model.WAQF_BOARD_BUDGET_ACTIVE_FIN_YEAR_MASTER.ID " />
+            <div class="form-group">
+                <label class="control-label col-md-3">
+                    Financial Year
+                    <span class="required"> * </span>
+                </label>
+                <div class="col-md-4">
+                    <div class="input-icon right">
+                        <i class="fa"></i>
+                        <input type="text" class="form-control" name="name" id="name" value="@Model.WAQF_BOARD_BUDGET_ACTIVE_FIN_YEAR_MASTER.CURRENT_FIN_YEAR " required />
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                        <a href="/Admin/ActiveFinYear" class="btn btn-danger">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

@@ -1,0 +1,30 @@
+﻿@model Hospital_Management.Models.MainModel
+@{
+    ViewBag.Title = "WAQF_BOARD_BUDGET_STATE_ALLOTMENT_DETAILS";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card card-custom">
+    <div class="card-header">
+        <div class="card-title">
+
+            <h3 class="card-label"> Waqf Board State Allotment Details </h3>
+        </div>
+        <div class="card-toolbar">
+            <a href="/Admin/StateAllotDetails" class="btn btn-light-primary btn-sm font-weight-bolder mr-2">
+                <i class="fa fa-reply"></i>
+                Back
+            </a>
+            <a href="/Admin/AddStateAllotDetails?Id=@Guid.Empty" class="btn btn-success btn-sm font-weight-bolder mr-2">
+                <i class="fa fa-plus"></i>
+                Add New
+            </a>
+            <!--end::Button-->
+        </div>
+    </div>
+    <div class="card-body">
+        @{Html.RenderPartial("~/Views/PartialView/_StateAllotment.cshtml", @Model);}
+    </div>
+
+</div>
+

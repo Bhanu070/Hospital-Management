@@ -1,0 +1,180 @@
+﻿@model Hospital_Management.Models.MainModel
+@{
+    ViewBag.Title = "AddBoardMemberDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/assets/js/jquery-1.10.2.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
+<script src="~/assets/emailvalidation.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $("#NOTIFICATION_DT").datepicker({
+            showOn: 'button',
+            buttonImageOnly: true,
+            buttonImage: '/images/calendar.gif'
+        });
+        $("#SelectedDatedobdate").datepicker({
+            showOn: 'button',
+            buttonImageOnly: true,
+            buttonImage: '/images/calendar.gif'
+        });
+    });
+</script>
+
+
+
+
+<script type="text/javascript">
+    function showimagepreviewnew(input) {
+        if (input.files && input.files[0]) {
+            var filerdr = new FileReader();
+            filerdr.onload = function (e) {
+                $('#imgprvw').attr('src', e.target.result);
+            }
+            filerdr.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+
+<script type="text/javascript">
+    function showimagepreviewnew1(input) {
+        if (input.files && input.files[0]) {
+            var filerdr = new FileReader();
+            filerdr.onload = function (e) {
+                $('#imgprvw1').attr('src', e.target.result);
+            }
+            filerdr.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31
+            && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+</script>
+<script type="text/javascript">
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+</script>
+
+    <div class="card card-custom gutter-b example example-compact">
+        <div class="card-header">
+            <h3 class="card-title">
+              Board Member Details
+            </h3>
+            <div class="card-toolbar">
+                <a href="/Admin/MemberDetails" class="btn btn-light-primary btn-sm font-weight-bolder mr-2">
+                    <i class="fa fa-reply"></i>
+                    Back
+                </a>
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            <div class="flex-grow-1">
+                <div class="d-flex align-items-center justify-content-between ">
+                    <div class="d-flex align-items-center mr-2">
+                        <div>
+                            <h4 class="card-label">
+                               Member Name
+                                <span class="d-block text-info font-size-lg mt-2">@Model.WAQF_HR_BOARD_MEMBERS_DETAILS_NEWList[0].NAME</span>
+                            </h4>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="separator separator-solid separator-dark mb-2"></div>
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <th scope="row" style="width:140px">UID Type:</th>
+                            <td>@Model.WAQF_HR_BOARD_MEMBERS_DETAILS_NEWList[0].utype</td>
+                            <td class="font-weight-bolder">Email Id:</td>
+                            <td>
+                                @if (Model.WAQF_HR_BOARD_MEMBERS_DETAILS_NEWList[0].EMAIL != "")
+                                {
+                                    @Model.WAQF_HR_BOARD_MEMBERS_DETAILS_NEWList[0].EMAIL
+                                }
+                                else
+                                {
+                                    <span>N/A</span>
+                                }
+
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row" style="width:140px">UID No:</th>
+                            <td>@Model.WAQF_HR_BOARD_MEMBERS_DETAILS_NEWList[0].UID_NO </td>
+                        </tr>
+
+                     
+                        <tr>
+                            <th scope="row" style="width:140px">Designation:</th>
+                            <td> @Model.WAQF_HR_BOARD_MEMBERS_DETAILS_NEWList[0].Designame</td>
+                           
+                        </tr>
+                        <tr>
+                            <th scope="row" style="width:140px">Electoral College:</th>
+                            <td>
+                                @Model.WAQF_HR_BOARD_MEMBERS_DETAILS_NEWList[0].ELECTORAL_COLLEGE
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row" style="width:140px">Address:</th>
+                            <td>
+                                @Model.WAQF_HR_BOARD_MEMBERS_DETAILS_NEWList[0].ADDRESS
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="width:140px">Mobile No:</th>
+                            <td>
+                                @Model.WAQF_HR_BOARD_MEMBERS_DETAILS_NEWList[0].MOBILENO
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row" style="width:140px">Notification Date:</th>
+                            <td>
+                                @Model.WAQF_HR_BOARD_MEMBERS_DETAILS_NEWList[0].NOTIFICATION_DT
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="width:140px">Notification Image Preview:</th>
+                            <td> <img src="@Url.Content(Model.WAQF_HR_BOARD_MEMBERS_DETAILS_NEWList[0].NOTIFICATION_PATH)" alt="" id="imgprvw" class="imageresize" style="width: 100px; height: 100px;" /></td>
+
+                        </tr>
+
+                        <tr>
+                            <th scope="row" style="width:140px">Photo Image Preview:</th>
+                            <td> <img src="~/assets/media/users/user1.jpg" alt="User Pic" id="imgprvw1" class="imageresize" style="width: 100px; height: 100px; " /></td>
+                           
+
+                        </tr>
+</table>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-lg-1 col-xl-1">
+        <div class="kt-portlet sticky" data-sticky="true" data-margin-top="100px" data-sticky-for="1023" data-sticky-class="kt-sticky">
+        </div>
+    </div>
+
+

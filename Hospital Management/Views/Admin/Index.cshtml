@@ -1,0 +1,257 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@if (ViewBag.Role == "Admin")
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card card-custom gutter-b">
+                <div class="card-body">
+                    <div class="d-flex mb-12">
+                        <div class="flex-shrink-0 mr-7 mt-lg-0 mt-3">
+                            <div class="symbol symbol-50 symbol-lg-120">
+                                @if (ViewBag.Pic != "")
+                                {
+                                    @*<img src="@ViewBag.Pic" alt="image" />*@
+                                }
+                                else
+                                {
+                                    <img src="~/assets/media/users/blank.png" alt="image" />
+                                }
+
+                            </div>
+                            <div class="symbol symbol-50 symbol-lg-120 symbol-primary d-none">
+                                <span class="font-size-h3 symbol-label font-weight-boldest">JM</span>
+                            </div>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="d-flex justify-content-between flex-wrap mt-1">
+                                <div class="d-flex mr-3">
+                                    <span class="text-dark-75 text-primary font-size-h5 font-weight-bold mr-3"> User :</span> <a href="#" class="text-dark-75 text-hover-primary font-size-h5 font-weight-bold mr-3">@ViewBag.UserName</a>
+                                    <a href="#">
+                                        <i class="flaticon2-correct text-success font-size-h5"></i>
+                                    </a>
+                                </div>
+                                <div class="my-lg-0 my-3">
+                                    @*<span class="fa fa-user-cog fa-3x fa-fw text-primary"></span>
+                                        <i class="fa fa-cog fa-spin"></i>
+                                        <span class="sr-only">Loading...</span>*@
+                                    @*<a href="/Home/Add_Waqf_User?Id=@ViewBag.Id" class="btn btn-sm btn-light-success font-weight-bolder text-uppercase mr-3">Edit</a>*@
+                                    <a href="../Hospital/ChangePassword?Id=@ViewBag.Id" class="btn btn-sm font-weight-bolder text-uppercase" style="background-color: #2ac9bb; color: white;">Change Password</a>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-wrap justify-content-between mt-1">
+                                <div class="d-flex flex-column flex-grow-1 pr-8">
+                                    <div class="d-flex flex-wrap mb-4">
+                                        @*<a href="#" class="text-dark-50 text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2">
+                                            <i class="flaticon2-new-email mr-2 font-size-lg" style="color: darkgreen;"></i>@ViewBag.Email
+                                        </a>*@
+                                        <a href="#" class="text-dark-50 text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2">
+                                            <span class="text-dark-75 text-primary font-size-h5 font-weight-bold mr-3"> Contact :</span>   <i class="fas fa-phone-volume mr-2 font-size-lg" style="color: darkgreen;"></i>@ViewBag.Mobile
+                                        </a>
+                                        @*<a href="#" class="text-dark-50 text-hover-primary font-weight-bold">
+                                                <i class="flaticon2-placeholder mr-2 font-size-lg" style="color: darkgreen;"></i>@ViewBag.Country
+                                            </a>*@
+                                    </div>
+                                    @*<span class="font-weight-bold text-dark-50">@ViewBag</span>*@
+                                    <span class="font-weight-bold text-dark-50">@*A second could be persuade people.You want people to bay objective*@</span>
+                                </div>
+                                @*<div class="d-flex align-items-center w-25 flex-fill float-right mt-lg-12 mt-8">
+                                        <span class="font-weight-bold text-dark-75">Progress</span>
+                                        <div class="progress progress-xs mx-3 w-100">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 63%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <span class="font-weight-bolder text-dark">78%</span>
+                                    </div>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @*<div class="col-xl-12">
+            <div class="bg-light-primary card card-custom bgi-no-repeat bgi-no-repeat bgi-size-cover gutter-b">
+                <div class="card-body d-flex flex-column">
+                    <a href="#" class="text-warning text-hover-primary font-weight-bolder font-size-h3"> </a>
+                    <h2 class="text-info"> </h2>
+                </div>
+            </div>
+        </div>*@
+
+
+    @*<div class="row">
+        <div class="col-lg-12">
+            <div class="card card-custom gutter-b">
+                <div class="card-body">
+                    <div class="d-flex mb-12">
+
+                        <div class="offset-lg-3 col-lg-6  ">
+                            <img src="~/Images/uttarakhanddistrict-map.jpg" class="rounded" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+}
+
+else
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card card-custom gutter-b">
+                <div class="card-body">
+                    <div class="d-flex mb-12">
+                        <div class="flex-shrink-0 mr-7 mt-lg-0 mt-3">
+                            <div class="symbol symbol-50 symbol-lg-120">
+                                @if (ViewBag.Pic != "")
+                                {
+                                    @*<img src="@ViewBag.Pic" alt="image" />*@
+                                }
+                                else
+                                {
+                                    <img src="~/assets/media/users/blank.png" alt="image" />
+                                }
+
+                            </div>
+                            <div class="symbol symbol-50 symbol-lg-120 symbol-primary d-none">
+                                <span class="font-size-h3 symbol-label font-weight-boldest">JM</span>
+                            </div>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="d-flex justify-content-between flex-wrap mt-1">
+                                <div class="d-flex mr-3">
+                                    <span class="text-dark-75 text-primary font-size-h5 font-weight-bold mr-3"> User :</span> <a href="#" class="text-dark-75 text-primary font-size-h5 font-weight-bold mr-3">@ViewBag.UserName</a>
+                                    <a href="#">
+                                        <i class="flaticon2-correct text-success font-size-h5"></i>
+                                    </a>
+                                </div>
+                                <div class="my-lg-0 my-3">
+                                    @*<span class="fa fa-user-cog fa-3x fa-fw text-primary"></span>
+                                        <i class="fa fa-cog fa-spin"></i>
+                                        <span class="sr-only">Loading...</span>*@
+                                    @*<a href="/Home/Add_Waqf_User?Id=@ViewBag.Id" class="btn btn-sm btn-light-success font-weight-bolder text-uppercase mr-3">Edit</a>*@
+                                    <a href="../Hospital/ChangePassword?Id=@ViewBag.Id" class="btn btn-sm font-weight-bolder text-uppercase" style="background-color: #2ac9bb; color: white;">Change Password</a>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-wrap justify-content-between mt-1">
+                                <div class="d-flex flex-column flex-grow-1 pr-8">
+                                    <div class="d-flex flex-wrap mb-4">
+                                        @*<a href="#" class="text-dark-50 text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2">
+                                            <i class="flaticon2-new-email mr-2 font-size-lg" style="color: darkgreen;"></i>@ViewBag.Email
+                                        </a>*@
+                                        <a href="#" class="text-dark-50 text-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2">
+                                            <span class="text-dark-75 text-primary font-size-h5 font-weight-bold mr-3"> Contact :</span>   <i class="fas fa-phone-volume mr-2 font-size-lg" style="color: darkgreen;"></i>@ViewBag.Mobile
+                                        </a>
+                                        @*<a href="#" class="text-dark-50 text-hover-primary font-weight-bold">
+                                                <i class="flaticon2-placeholder mr-2 font-size-lg" style="color: darkgreen;"></i>@ViewBag.Country
+                                            </a>*@
+                                    </div>
+                                    @*<span class="font-weight-bold text-dark-50">@ViewBag</span>*@
+                                    <span class="font-weight-bold text-dark-50">@*A second could be persuade people.You want people to bay objective*@</span>
+                                </div>
+                                @*<div class="d-flex align-items-center w-25 flex-fill float-right mt-lg-12 mt-8">
+                                        <span class="font-weight-bold text-dark-75">Progress</span>
+                                        <div class="progress progress-xs mx-3 w-100">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 63%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <span class="font-weight-bolder text-dark">78%</span>
+                                    </div>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @*<div class="col-xl-12">
+            <div class="bg-light card card-custom bgi-no-repeat bgi-no-repeat bgi-size-cover gutter-b">
+                <div class="card-body d-flex flex-column">
+                    <a href="#" class="text-warning text-hover-primary font-weight-bolder font-size-h3"> </a>
+                    <h2 class="text-info"> </h2>
+                </div>
+            </div>
+        </div>*@
+
+
+
+
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card card-custom gutter-b">
+                <div class="card-body">
+                    <div class="d-flex mb-12">
+
+                        <div class="offset-lg-3 col-lg-6  ">
+                            @*<img src="~/Images/uttarakhanddistrict-map.jpg" class="rounded" />*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@*<script type="text/javascript">
+        var options = {
+            series: [{
+                name: 'Net Profit',
+                data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+            }, {
+                name: 'Revenue',
+                data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+            }, {
+                name: 'Free Cash Flow',
+                data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
+            }],
+            chart: {
+                type: 'bar',
+                height: 350
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '55%',
+                    endingShape: 'rounded'
+                },
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                show: true,
+                width: 2,
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+            },
+            yaxis: {
+                title: {
+                    text: '$ (thousands)'
+                }
+            },
+            fill: {
+                opacity: 1
+            },
+            tooltip: {
+                y: {
+                    formatter: function (val) {
+                        return "$ " + val + " thousands"
+                    }
+                }
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+    </script>*@

@@ -1,0 +1,6 @@
+D:\Hospital Management\Hospital Management\BusinessObject\bin\Release\BusinessObject.dll
+D:\Hospital Management\Hospital Management\BusinessObject\bin\Release\BusinessObject.pdb
+D:\Hospital Management\Hospital Management\BusinessObject\obj\Release\BusinessObject.csprojAssemblyReference.cache
+D:\Hospital Management\Hospital Management\BusinessObject\obj\Release\BusinessObject.csproj.CoreCompileInputs.cache
+D:\Hospital Management\Hospital Management\BusinessObject\obj\Release\BusinessObject.dll
+D:\Hospital Management\Hospital Management\BusinessObject\obj\Release\BusinessObject.pdb

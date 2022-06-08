@@ -1,0 +1,45 @@
+﻿@model Hospital_Management.Models.MainModel
+
+
+@{
+    ViewBag.Title = "User List";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card card-custom">
+    <div class="card-header">
+        <div class="card-title">
+
+            <h3 class="card-label"> User Detail List</h3>
+        </div>
+        <div class="card-toolbar">
+            <a href="/Admin/AllUser" class="btn btn-light-primary btn-sm font-weight-bolder mr-2">
+                <i class="fa fa-reply"></i>
+                Back
+            </a>
+@if (Model.PermissionList.Where(s => s.MenuName == "Add User" && s.AddRecord == "on").ToList().Count > 0 || ViewBag.Role == "Admin")
+                    {
+            <a href="/Admin/AddUser?Id=@Guid.Empty" class="btn btn-success btn-sm font-weight-bolder mr-2">
+                <i class="fa fa-plus"></i>
+                Add New
+            </a>
+}
+            <!--end::Button-->
+        </div>
+    </div>
+    <div class="card-body">
+        @{Html.RenderPartial("~/Views/PartialView/_UserList.cshtml", @Model);}
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
