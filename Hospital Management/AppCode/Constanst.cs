@@ -17,6 +17,7 @@ namespace Hospital_Management.AppCode
     {
         //
         // GET: /Search/ rahultoday
+        // 9 june 2022 B
         /// <summary>
         /// Binding the pager view
         /// </summary>
