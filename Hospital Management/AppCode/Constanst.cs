@@ -16,7 +16,7 @@ namespace Hospital_Management.AppCode
     public class Constant
     {
         //
-        // GET: /Search/
+        // GET: /Search/ rahultoday
         /// <summary>
         /// Binding the pager view
         /// </summary>
