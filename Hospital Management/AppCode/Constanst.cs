@@ -17,6 +17,7 @@ namespace Hospital_Management.AppCode
     {
         //
         // GET: /Search/ rahultoday ,today agian
+        // Bhanu sharama
         /// <summary>
         /// Binding the pager view
         /// </summary>
