@@ -20,3 +20,25 @@ D:\Hospital Management\Hospital Management\BusinessManager\obj\Debug\BusinessMan
 D:\Hospital Management\Hospital Management\BusinessManager\obj\Debug\BusinessManager.csproj.CopyComplete
 D:\Hospital Management\Hospital Management\BusinessManager\obj\Debug\BusinessManager.dll
 D:\Hospital Management\Hospital Management\BusinessManager\obj\Debug\BusinessManager.pdb
+C:\Server_UK\Hospital-Management\BusinessManager\bin\Debug\BusinessManager.dll
+C:\Server_UK\Hospital-Management\BusinessManager\bin\Debug\BusinessManager.pdb
+C:\Server_UK\Hospital-Management\BusinessManager\bin\Debug\BusinessObject.dll
+C:\Server_UK\Hospital-Management\BusinessManager\bin\Debug\DataLayer.dll
+C:\Server_UK\Hospital-Management\BusinessManager\bin\Debug\BusinessObject.pdb
+C:\Server_UK\Hospital-Management\BusinessManager\bin\Debug\DataLayer.pdb
+C:\Server_UK\Hospital-Management\BusinessManager\obj\Debug\BusinessManager.csproj.AssemblyReference.cache
+C:\Server_UK\Hospital-Management\BusinessManager\obj\Debug\BusinessManager.csproj.CoreCompileInputs.cache
+C:\Server_UK\Hospital-Management\BusinessManager\obj\Debug\BusinessManager.csproj.CopyComplete
+C:\Server_UK\Hospital-Management\BusinessManager\obj\Debug\BusinessManager.dll
+C:\Server_UK\Hospital-Management\BusinessManager\obj\Debug\BusinessManager.pdb
+C:\Server_UK\Hospital-Management\Hospital-Management\BusinessManager\bin\Debug\BusinessManager.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\BusinessManager\bin\Debug\BusinessManager.pdb
+C:\Server_UK\Hospital-Management\Hospital-Management\BusinessManager\bin\Debug\BusinessObject.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\BusinessManager\bin\Debug\DataLayer.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\BusinessManager\bin\Debug\BusinessObject.pdb
+C:\Server_UK\Hospital-Management\Hospital-Management\BusinessManager\bin\Debug\DataLayer.pdb
+C:\Server_UK\Hospital-Management\Hospital-Management\BusinessManager\obj\Debug\BusinessManager.csproj.AssemblyReference.cache
+C:\Server_UK\Hospital-Management\Hospital-Management\BusinessManager\obj\Debug\BusinessManager.csproj.CoreCompileInputs.cache
+C:\Server_UK\Hospital-Management\Hospital-Management\BusinessManager\obj\Debug\BusinessManager.csproj.CopyComplete
+C:\Server_UK\Hospital-Management\Hospital-Management\BusinessManager\obj\Debug\BusinessManager.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\BusinessManager\obj\Debug\BusinessManager.pdb

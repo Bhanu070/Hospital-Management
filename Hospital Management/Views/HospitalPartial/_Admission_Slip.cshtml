@@ -1,0 +1,86 @@
+﻿@model Hospital_Management.Models.MainModel
+
+@if (ViewBag.Msg != "")
+{
+    <div id="msg">
+        <h6 class="alert text-center" style="background-color:#2ac9bb; color:white">
+            @ViewBag.Msg &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="alert-dismissable" data-dismiss="alert"> <span class="fa fa-times"></span> </a>
+        </h6>
+    </div>
+}
+<script>
+    $(document).ready(function () {
+        setTimeout(function () {
+            $("#msg").fadeOut();
+        }, 5000);
+    });
+</script>
+
+
+<table class="table table-striped- table-bordered table-hover table-checkable table-sm" id="table_pend">
+    <thead>
+        <tr>
+            <th style="width:3%;">S.No. </th>
+            <th style="width: 6%;"> Reg Date </th>
+            <th style="width: 6%;"> IPD_No </th>
+            <th style="width:14%;"> Patient Name </th>
+            <th style="width:8%;"> Registration Type </th>
+            <th style="width:6%;"> Ward Type </th>
+            <th style="width: 6%;"> Room No </th>
+            <th style="width: 5%;"> Bed No </th>
+            <th style="width: 6%;"> Room Type </th>
+            <th style="width:10%;"> Consultant Name </th>
+            <th style="width:10%;"> Referred Name </th>
+            <th style="width: 7%;"> Created By </th>
+            <th style="width: 7%;"> Created On </th>
+
+            <th> Action </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int SNo = 0;
+        }
+        @foreach (var item in Model.IPD_Admission_SlipList)
+        {
+            SNo++;
+        <tr class="odd gradeX">
+            <td> @SNo </td>
+            <td> @item.Ipd_Reg_Date.ToString("dd-MM-yy") </td>
+            <td> @item.IPD_No </td>
+            <td>@item.Patient_Name</td>
+
+            <td> @item.Registration_Type </td>
+            <td> @item.WardName </td>
+            <td>@item.RoomName</td>
+            <td style="text-align:center;">@item.BedNo</td>
+            <td>@item.AC_Normal</td>
+            <td>@item.Consultant_Name</td>
+            <td>@item.ReferredBy</td>
+
+            <td> @item.CreatedBy </td>
+            <td> @item.CreatedOn.ToString("dd-MM-yyyy") </td>
+
+            <td>
+                <a href="/Hospital/AddAdmission_Slip?Id=@item.AdmissionId  " class="btn btn-icon btn-warning btn-xs mr-1"><i class="fa fa-edit" data-container="body" data-toggle="tooltip" data-placement="top" title=""></i></a>
+                <a href="/Hospital/DeleteAdmission_Slip?Id=@item.AdmissionId  " onclick=" return confirm('Are You Sure ! Do you Want to delete ?')" class="btn btn-icon btn-youtube btn-xs mr-1"><i class="flaticon-delete" data-container="body" data-toggle="tooltip" data-placement="top" title=""></i></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<br />
+
+
+@* edit delete td
+        <td>
+        @if (Model.PermissionList.Where(s => s.MenuName == "Gender" && s.UpdateRecord == "on").ToList().Count > 0)
+        {
+            <a href="/Hospital/AddDoctor?Id=@item.Doc_Id  " class="btn btn-icon btn-warning btn-xs mr-1"><i class="fa fa-edit" data-container="body" data-toggle="tooltip" data-placement="top" title=""></i></a>
+        }
+        @if (Model.PermissionList.Where(s => s.MenuName == "Gender" && s.DeleteRecord == "on").ToList().Count > 0)
+        {
+            <a href="/Hospital/DeleteDoctor?Id=@item.Doc_Id  " onclick=" return confirm('Are You Sure ? Do you Want to delete')" class="btn btn-icon btn-youtube btn-xs mr-1"><i class="flaticon-delete" data-container="body" data-toggle="tooltip" data-placement="top" title=""></i></a>
+        }
+    </td>*@

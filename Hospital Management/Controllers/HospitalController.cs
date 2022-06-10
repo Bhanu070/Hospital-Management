@@ -49,8 +49,8 @@ namespace Hospital_Management.Controllers
                 Guid Cd = Guid.Empty;
                 Guid.TryParse(itemnew.Login.Country, out Cd);
 
-               
-                    ViewBag.Country = "N/A";
+
+                ViewBag.Country = "N/A";
 
                 itemnew.PermissionList = PermissionManager.GetByUserId(RefId);
 
@@ -161,7 +161,7 @@ namespace Hospital_Management.Controllers
             return (Json(result, JsonRequestBehavior.AllowGet));
         }
 
-       
+
 
         public ActionResult ChangePassword(Guid Id)
         {
@@ -726,7 +726,7 @@ namespace Hospital_Management.Controllers
                 else
                 {
                     itemnew.Service_type_MasterList = Service_type_MasterManager.GetAll_Service("OPD");
-                
+
                     ViewBag.dlist = new SelectList(DoctorList, "Doc_Id", "Doc_Name");
                     ViewBag.paymentmode = new SelectList(Constant.paymentmodehospital, "Value", "Text");
                     ViewBag.paymentstatus = new SelectList(Constant.paymentstatus, "Value", "Text");
@@ -1060,7 +1060,7 @@ namespace Hospital_Management.Controllers
             ViewBag.MsgTitle = "Success!";
             Guid Id = Guid.Empty;
             Guid.TryParse(coll["Id"], out Id);
-            
+
             Pathology_OPD_Main_Details obj = new Pathology_OPD_Main_Details();
             if (Id != Guid.Empty)
             {
@@ -1073,9 +1073,9 @@ namespace Hospital_Management.Controllers
 
 
             itemnew.Service_type_MasterList = Service_type_MasterManager.GetAll_All().Where(a => a.ServiceType == "Pathology").OrderBy(a => a.ServiceName).ToList();
-          
 
-         
+
+
             obj.Service_type = "Pathology";
             obj.Patient_Id = Guid.Parse(coll["drpplist"]);
             obj.Doc_Id = Guid.Parse(coll["drpdlist"]);
@@ -1140,7 +1140,7 @@ namespace Hospital_Management.Controllers
                                 objj.MainId = Id;
                                 Service_type_SubDetailsManager.Add_temp(objj);
                             }
-                           
+
                         }
                     }
                 }
@@ -1191,10 +1191,10 @@ namespace Hospital_Management.Controllers
                             objj.CreatedOn = objj.UpdatedOn = DateTime.Now;
                             objj.Status = "status";
 
-                          
-                                objj.MainId = obj.MainId;
-                                Service_type_SubDetailsManager.Add(objj);
-                            
+
+                            objj.MainId = obj.MainId;
+                            Service_type_SubDetailsManager.Add(objj);
+
 
                         }
                     }
@@ -1205,6 +1205,163 @@ namespace Hospital_Management.Controllers
             return Redirect("Pathology?Id=00000000-0000-0000-0000-000000000000");
         }
 
+        #region Admission Slip
+        public ActionResult Admission_Slip()
+        {
+            if (Request.Cookies["hospital@#123"] != null)
+            {
+                MainModel itemnew = new MainModel();
+                string sid = Request.Cookies["hospital@#123"].Value;
+                string[] AllArray = sid.Split(',');
+                ViewBag.UserName = AllArray[1];
+                ViewBag.Role = AllArray[2];
+                ViewBag.Pic = AllArray[3];
+                ViewBag.Msg = "";
+                itemnew.IPD_Admission_SlipList = IPD_Admission_SlipManager.GetAll().ToList();
+                Guid RefId = Guid.Empty;
+                Guid.TryParse(AllArray[0], out RefId);
+                itemnew.Login = LoginManager.GetById(RefId);
+                itemnew.PermissionList = PermissionManager.GetByUserId(RefId);
+                return View("~/Views/Hospital/IPD_Admission_Slip.cshtml", new MainModel { PermissionList = itemnew.PermissionList, Login = itemnew.Login, IPD_Admission_SlipList = itemnew.IPD_Admission_SlipList });
+            }
+            else
+                return RedirectToAction("LogIn", "Hospital");
+        }
+        public ActionResult AddAdmission_Slip(Guid Id)
+        {
+            if (Request.Cookies["hospital@#123"] != null)
+            {
+                MainModel itemnew = new MainModel();
+                string sid = Request.Cookies["hospital@#123"].Value;
+                string[] AllArray = sid.Split(',');
+                ViewBag.UserName = AllArray[1];
+                ViewBag.Role = AllArray[2];
+                ViewBag.Pic = AllArray[3];
+                List<Patient_Master> PatientList = Patient_MasterManager.GetAll();
+                List<Pathology_OPD_Main_Details> OPDList = Pathology_OPD_Main_DetailsManager.GetAll();
+                if (Id != Guid.Empty)
+                {
+                    itemnew.IPD_Admission_Slip = IPD_Admission_SlipManager.GetById(Id);
+                    ViewBag.RegType = new SelectList(Constant.RegistrationType, "Value", "Text", itemnew.IPD_Admission_Slip.Registration_Type);
+                    ViewBag.OPDNo = new SelectList(OPDList, "MainId", "OP_No", itemnew.IPD_Admission_Slip.OPD_RegistrationId);
+                    ViewBag.WardType = new SelectList(Constant.WardType, "Value", "Text", itemnew.IPD_Admission_Slip.WardName);
+                    ViewBag.BedNoType = new SelectList(Constant.BedNumber, "Value", "Text", itemnew.IPD_Admission_Slip.BedNo);
+                    ViewBag.BedType = new SelectList(Constant.BedType, "Value", "Text", itemnew.IPD_Admission_Slip.AC_Normal);
+                    ViewBag.RegDate = itemnew.IPD_Admission_Slip.Ipd_Reg_Date.ToString("yyyy-MM-dd");
+                    ViewBag.buttontitle = "Update";
+                    ViewBag.PatientType = new SelectList(PatientList, "Patient_Id", "Patient_Name", itemnew.IPD_Admission_Slip.Patient_id);
+                    itemnew.Patient_Master = Patient_MasterManager.GetById(itemnew.IPD_Admission_Slip.Patient_id);
+                }
+                else
+                {
+                    ViewBag.RegType = new SelectList(Constant.RegistrationType, "Value", "Text");
+                    ViewBag.WardType = new SelectList(Constant.WardType, "Value", "Text");
+                    ViewBag.BedNoType = new SelectList(Constant.BedNumber, "Value", "Text");
+                    ViewBag.BedType = new SelectList(Constant.BedType, "Value", "Text");
+                    ViewBag.OPDNo = new SelectList(OPDList, "MainId", "OP_No");
+                    ViewBag.PatientType = new SelectList(PatientList, "Patient_Id", "Patient_Name");
+                    ViewBag.RegDate = DateTime.Now.ToString("yyyy-MM-dd");
+
+                }
+                itemnew.IPD_Admission_SlipList = IPD_Admission_SlipManager.GetAll().ToList();
+                Guid RefId = Guid.Empty;
+                Guid.TryParse(AllArray[0], out RefId);
+                itemnew.Login = LoginManager.GetById(RefId);
+                itemnew.PermissionList = PermissionManager.GetByUserId(RefId);
+
+                return View("~/Views/Hospital/AllForms/AddIPD_Admission_Slip.cshtml", new MainModel { PermissionList = itemnew.PermissionList, Login = itemnew.Login, IPD_Admission_SlipList = itemnew.IPD_Admission_SlipList, IPD_Admission_Slip = itemnew.IPD_Admission_Slip, Patient_Master= itemnew.Patient_Master });
+            }
+            else
+                return RedirectToAction("LogIn", "Hospital");
+        }
+
+        public ActionResult SaveIPD_Admission_Slip(FormCollection coll)
+        {
+
+            MainModel itemnew = new MainModel();
+            string sid = Request.Cookies["hospital@#123"].Value;
+            string[] AllArray = sid.Split(',');
+            ViewBag.UserName = AllArray[1];
+            ViewBag.Role = AllArray[2];
+            ViewBag.Pic = AllArray[3];
+
+            ViewBag.Msg = (TempData[Constant.INFO_MESSAGE] != null ? TempData[Constant.INFO_MESSAGE] : string.Empty).ToString();
+            TempData[Constant.INFO_MESSAGE] = "";
+            ViewBag.TypeCss = "success";
+            ViewBag.MsgTitle = "Success!";
+            Guid Id = Guid.Empty;
+            Guid.TryParse(coll["Id"], out Id);
+            IPD_Admission_Slip obj = new IPD_Admission_Slip();
+            if (Id != Guid.Empty)
+            {
+                IPD_Admission_Slip oldobj = IPD_Admission_SlipManager.GetById(Id);
+                if (oldobj != null)
+                    obj = oldobj;
+            }
+
+            Guid OPDId = Guid.Empty;
+            Guid.TryParse(coll["drpopd"], out OPDId);
+
+            if(coll["drpregtype"]== "Direct IPD Admission")
+            {
+                obj.Patient_id = Guid.Parse(coll["drPatient"]);
+            }
+            else if (coll["drpregtype"] == "Referred from OPD")
+            {
+                itemnew.Pathology_OPD_Main_Details = Pathology_OPD_Main_DetailsManager.GetById(OPDId);
+                obj.Patient_id = itemnew.Pathology_OPD_Main_Details.Patient_Id;
+
+            }
+            obj.Registration_Type = coll["drpregtype"];
+            obj.OPD_RegistrationId = OPDId;
+            obj.Consultant_Name = coll["ConsName"];
+            obj.ReferredBy = coll["RefBy"];
+            obj.WardName = coll["drpWardType"];
+            obj.RoomName = coll["Room"];
+            obj.BedNo = Convert.ToInt32(coll["drpBedNo"]);
+            obj.AC_Normal =coll["drpBedType"];
+            obj.Status = "Complete";
+            obj.Ipd_Reg_Date = Convert.ToDateTime(coll["RegDate"]);
+            obj.extra = "";
+            obj.extra1 = "";
+            obj.extra2 = "";
+
+            if (Id != Guid.Empty)
+            {
+                obj.AdmissionId = Id;
+                obj.UpdatedBy = ViewBag.UserName;
+                obj.UpdatedOn = DateTime.Now;
+                IPD_Admission_SlipManager.Update(obj);
+                TempData[Constant.INFO_MESSAGE] = "Record Updated Successfully";
+            }
+            else
+            {
+                obj.AdmissionId = Guid.NewGuid();
+                obj.CreatedBy = obj.UpdatedBy = ViewBag.UserName;
+                obj.CreatedOn = obj.UpdatedOn=  DateTime.Now;
+                IPD_Admission_SlipManager.Add(obj);
+
+                TempData[Constant.INFO_MESSAGE] = "Record Added Successfully.";
+            }
+            return RedirectToAction("Admission_Slip");
+        }
+        public JsonResult GetPatientDetail_OPD(Guid Id)
+        {
+            MainModel itemnew = new MainModel();
+            itemnew.Pathology_OPD_Main_Details = Pathology_OPD_Main_DetailsManager.GetById(Id);
+            List<Patient_Master> SubDistrictList = Patient_MasterManager.GetAll().Where(a => a.Patient_Id == itemnew.Pathology_OPD_Main_Details.Patient_Id).OrderBy(a => a.Patient_Name).ToList();
+            var resultsub = new { SubDistrictList = SubDistrictList };
+            return (Json(resultsub, JsonRequestBehavior.AllowGet));
+        }
+        public JsonResult GetPatientDetail_IPD(Guid Id)
+        {
+            MainModel itemnew = new MainModel();
+            List<Patient_Master> SubDistrictList = Patient_MasterManager.GetAll().Where(a => a.Patient_Id == Id).OrderBy(a => a.Patient_Name).ToList();
+            var resultsub = new { SubDistrictList = SubDistrictList };
+            return (Json(resultsub, JsonRequestBehavior.AllowGet));
+        }
+        
+        #endregion
 
 
 

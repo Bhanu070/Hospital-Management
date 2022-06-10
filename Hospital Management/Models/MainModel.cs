@@ -45,7 +45,9 @@ namespace Hospital_Management.Models
             this.Service_type_SubDetails = new Service_type_SubDetails();
             this.Service_type_SubDetailsList = new List<Service_type_SubDetails>();
 
-
+            this.IPD_Admission_Slip = new IPD_Admission_Slip();
+            this.IPD_Admission_SlipList = new List<IPD_Admission_Slip>();
+            
 
 
         }
@@ -81,5 +83,8 @@ namespace Hospital_Management.Models
         public Pathology_OPD_Main_Details Pathology_OPD_Main_Details { get; set; }
         public List<Pathology_OPD_Main_Details> Pathology_OPD_Main_DetailsList { get; set; }
 
+        public IPD_Admission_Slip IPD_Admission_Slip { get; set; }
+        public List<IPD_Admission_Slip> IPD_Admission_SlipList { get; set; }
+        
     }
 }

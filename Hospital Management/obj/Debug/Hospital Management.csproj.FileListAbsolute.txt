@@ -219,3 +219,207 @@ D:\Hospital Management\Hospital Management\Hospital Management\obj\Debug\Hospita
 D:\Hospital Management\Hospital Management\Hospital Management\obj\Debug\Hospital Management.csproj.CopyComplete
 D:\Hospital Management\Hospital Management\Hospital Management\obj\Debug\Hospital Management.dll
 D:\Hospital Management\Hospital Management\Hospital Management\obj\Debug\Hospital Management.pdb
+C:\Server_UK\Hospital-Management\Hospital Management\bin\Hospital Management.dll.config
+C:\Server_UK\Hospital-Management\Hospital Management\bin\Hospital Management.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\Hospital Management.pdb
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\csc.exe
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\csc.exe.config
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\csc.rsp
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\csi.exe
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\csi.exe.config
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\csi.rsp
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.AppContext.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.Collections.Immutable.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.Console.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.Globalization.Calendars.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.IO.Compression.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.IO.FileSystem.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.Net.Http.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.Net.Sockets.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.Reflection.Metadata.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.ValueTuple.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.Xml.XPath.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\vbc.exe
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\vbc.exe.config
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\vbc.rsp
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\VBCSCompiler.exe
+C:\Server_UK\Hospital-Management\Hospital Management\bin\roslyn\VBCSCompiler.exe.config
+C:\Server_UK\Hospital-Management\Hospital Management\bin\Antlr3.Runtime.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\BusinessManager.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\BusinessObject.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\CrystalDecisions.CrystalReports.Engine.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportSource.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\CrystalDecisions.Shared.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\CrystalDecisions.Web.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\DataLayer.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\Microsoft.Web.Infrastructure.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\Newtonsoft.Json.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\System.Web.Helpers.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\System.Web.Mvc.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\System.Web.Optimization.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\System.Web.Razor.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\System.Web.WebPages.Deployment.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\System.Web.WebPages.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\System.Web.WebPages.Razor.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\WebGrease.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\stdole.dll
+C:\Server_UK\Hospital-Management\Hospital Management\bin\BusinessManager.pdb
+C:\Server_UK\Hospital-Management\Hospital Management\bin\BusinessObject.pdb
+C:\Server_UK\Hospital-Management\Hospital Management\bin\DataLayer.pdb
+C:\Server_UK\Hospital-Management\Hospital Management\bin\System.Web.Helpers.xml
+C:\Server_UK\Hospital-Management\Hospital Management\bin\System.Web.Mvc.xml
+C:\Server_UK\Hospital-Management\Hospital Management\bin\System.Web.Optimization.xml
+C:\Server_UK\Hospital-Management\Hospital Management\bin\System.Web.Razor.xml
+C:\Server_UK\Hospital-Management\Hospital Management\bin\System.Web.WebPages.xml
+C:\Server_UK\Hospital-Management\Hospital Management\bin\System.Web.WebPages.Deployment.xml
+C:\Server_UK\Hospital-Management\Hospital Management\bin\System.Web.WebPages.Razor.xml
+C:\Server_UK\Hospital-Management\Hospital Management\bin\Newtonsoft.Json.xml
+C:\Server_UK\Hospital-Management\Hospital Management\bin\Antlr3.Runtime.pdb
+C:\Server_UK\Hospital-Management\Hospital Management\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Server_UK\Hospital-Management\Hospital Management\obj\Debug\Hospital Management.csproj.AssemblyReference.cache
+C:\Server_UK\Hospital-Management\Hospital Management\obj\Debug\Hospital Management.csproj.CoreCompileInputs.cache
+C:\Server_UK\Hospital-Management\Hospital Management\obj\Debug\Hospital Management.csproj.CopyComplete
+C:\Server_UK\Hospital-Management\Hospital Management\obj\Debug\Hospital Management.dll
+C:\Server_UK\Hospital-Management\Hospital Management\obj\Debug\Hospital Management.pdb
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\Hospital Management.dll.config
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\Hospital Management.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\Hospital Management.pdb
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\csc.exe
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\csc.exe.config
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\csc.rsp
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\csi.exe
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\csi.exe.config
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\csi.rsp
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.AppContext.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.Collections.Immutable.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.Console.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.Globalization.Calendars.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.IO.Compression.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.IO.FileSystem.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.Net.Http.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.Net.Sockets.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.Reflection.Metadata.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.ValueTuple.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.Xml.XPath.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\vbc.exe
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\vbc.exe.config
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\vbc.rsp
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\VBCSCompiler.exe
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\roslyn\VBCSCompiler.exe.config
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\Antlr3.Runtime.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\BusinessManager.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\BusinessObject.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\CrystalDecisions.CrystalReports.Engine.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportSource.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\CrystalDecisions.Shared.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\CrystalDecisions.Web.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\DataLayer.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\Microsoft.Web.Infrastructure.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\Newtonsoft.Json.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\System.Web.Helpers.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\System.Web.Mvc.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\System.Web.Optimization.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\System.Web.Razor.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\System.Web.WebPages.Deployment.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\System.Web.WebPages.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\System.Web.WebPages.Razor.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\WebGrease.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\stdole.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\BusinessManager.pdb
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\BusinessObject.pdb
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\DataLayer.pdb
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\System.Web.Helpers.xml
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\System.Web.Mvc.xml
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\System.Web.Optimization.xml
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\System.Web.Razor.xml
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\System.Web.WebPages.xml
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\System.Web.WebPages.Deployment.xml
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\System.Web.WebPages.Razor.xml
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\Newtonsoft.Json.xml
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\Antlr3.Runtime.pdb
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\obj\Debug\Hospital Management.csproj.AssemblyReference.cache
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\obj\Debug\Hospital Management.csproj.CoreCompileInputs.cache
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\obj\Debug\Hospital Management.csproj.CopyComplete
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\obj\Debug\Hospital Management.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\Hospital Management\obj\Debug\Hospital Management.pdb

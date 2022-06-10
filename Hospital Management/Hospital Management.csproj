@@ -2603,6 +2603,9 @@
     <Content Include="Views\Hospital\AllForms\AddPathology.cshtml" />
     <Content Include="Views\HospitalPartial\_Pathology.cshtml" />
     <Content Include="Views\HospitalPartial\_GetServiceList.cshtml" />
+    <Content Include="Views\Hospital\IPD_Admission_Slip.cshtml" />
+    <Content Include="Views\Hospital\AllForms\AddIPD_Admission_Slip.cshtml" />
+    <Content Include="Views\HospitalPartial\_Admission_Slip.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

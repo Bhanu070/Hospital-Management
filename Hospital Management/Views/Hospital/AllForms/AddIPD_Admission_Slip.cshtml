@@ -1,0 +1,298 @@
+﻿@model Hospital_Management.Models.MainModel
+
+@{
+    ViewBag.Title = "IPD_Admission_Slip";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/select2/dist/js/select2.min.js" type="text/javascript"></script>
+<link href="~/select2/dist/css/select2.min.css" rel="stylesheet" />
+<div class="card card-custom gutter-b example example-compact">
+    <div class="alert font-size-h3 text-center" style="background-color:#2ac9bb; color:white; font-family: Georgia, serif">
+        IPD Admission Slip
+    </div>
+
+    <div class="card-body">
+        @using (Html.BeginForm("SaveIPD_Admission_Slip", "Hospital", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", @id = "form_sample_2" }))
+        {
+            <input type="hidden" id="Id" name="Id" value="@Model.IPD_Admission_Slip.AdmissionId" />
+            <input type="hidden" id="chkopId" name="chkopId" value="@Model.IPD_Admission_Slip.Registration_Type" />
+            <div class="form-group row">
+
+                <div class="col-lg-3">
+                </div>
+                <div class="col-lg-3">
+                    <label>Registration Type<span style="color:red;">*</span>:</label>
+                    <div class="input-group">
+                        @Html.DropDownList("drpregtype", (SelectList)ViewBag.RegType, "Select Registration", new { @id = "drpregtype", @name = "drpregtype", @class = "form-control", @required = "required" })
+                    </div>
+                </div>
+                <div id="opdidhideshow" class="col-lg-3">
+                    <label>Select OPD<span style="color:red;">*</span>:</label>
+                    <div class="input-group">
+                        @Html.DropDownList("drpopd", (SelectList)ViewBag.OPDNo, "Select OPD No", new { @id = "drpopd", @name = "drpopd", @class = "form-control", @required = "required" })
+
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                </div>
+
+            </div>
+
+            <div class="form-group row">
+
+                <div class="col-lg-3">
+                    <label>Registration Date<span style="color:red;">*</span>:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
+                        <input type="date" placeholder="Enter Registration Date" class="form-control" name="RegDate" id="RegDate" value="@ViewBag.RegDate" required />
+                    </div>
+                </div>
+                @*<div id="PatientNameOPD" class="col-lg-3">
+                        <label>Patient Name<span style="color:red;">*</span>:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
+                            <input type="text" placeholder="Enter Patient Name" class="form-control" disabled name="P_Name" id="P_Name" value="@Model.Patient_Master.Patient_Name" required />
+                        </div>
+                    </div>*@
+                <div id="PatientNameIPD1" class="col-lg-3">
+                    <label>Patient Name<span style="color:red;">*</span>:</label>
+                    <div class="input-group">
+                        @Html.DropDownList("drPatient", (SelectList)ViewBag.PatientType, "Select Patient Name", new { @id = "drPatient", @name = "drPatient", @class = "form-control", @required = "required" })
+                        <input type="hidden" id="lbltxt" name="lbltxt" />
+                        <input type="hidden" id="lblid" name="lblid" />
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <label>Age<span style="color:red;">*</span>:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-graduation-cap"></i></span></div>
+                        <input type="text" placeholder="Enter Age" class="form-control" disabled name="Age" id="Age" value="@Model.Patient_Master.Age" required />
+
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <label>Gender<span style="color:red;">*</span>:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
+                        <input type="text" placeholder="Enter Gender" class="form-control" disabled name="Gender" id="Gender" value="@Model.Patient_Master.Sex" required />
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group row">
+
+                <div class="col-lg-3">
+                    <label>Address<span style="color:red;">*</span>:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
+                        <input type="text" placeholder="Enter Address" class="form-control" disabled name="Address" id="Address" value="@Model.Patient_Master.Address" required />
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <label>Phone No<span style="color:red;">*</span>:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
+                        <input type="text" placeholder="Enter Phone No" class="form-control" disabled name="PhoneNo" id="PhoneNo" value="@Model.Patient_Master.MobileNo" required />
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <label>Cousult Name<span style="color:red;">*</span>:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
+                        <input type="text" placeholder="Enter Counsult Name" class="form-control" name="ConsName" id="ConsName" value="@Model.IPD_Admission_Slip.Consultant_Name" required />
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <label>Referred By<span style="color:red;">*</span>:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
+                        <input type="text" placeholder="Enter Phone No" class="form-control" name="RefBy" id="RefBy" value="@Model.IPD_Admission_Slip.ReferredBy" required />
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group row">
+                <div class="col-lg-3">
+                    <label>Room/Ward Name<span style="color:red;">*</span>:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
+                        @Html.DropDownList("drpWardType", (SelectList)ViewBag.WardType, "Select Ward Type", new { @id = "drpWardType", @name = "drpWardType", @class = "form-control", @required = "required" })
+
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <label>Room<span style="color:red;">*</span>:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
+                        <input type="text" placeholder="Enter Phone No" class="form-control" name="Room" id="Room" value="@Model.IPD_Admission_Slip.RoomName" required />
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <label>Bed No<span style="color:red;">*</span>:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
+                        @Html.DropDownList("drpBedNo", (SelectList)ViewBag.BedNoType, "Select Bed No", new { @id = "drpBedNo", @name = "drpBedNo", @class = "form-control", @required = "required" })
+
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <label>Bed Type<span style="color:red;">*</span>:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
+                        @Html.DropDownList("drpBedType", (SelectList)ViewBag.BedType, "Select Bed Type", new { @id = "drpBedType", @name = "drpBedType", @class = "form-control", @required = "required" })
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-7">
+                        <button type="submit" class="btn" style="background-color:#2ac9bb; color:white; width:200px"> <span class="fa fa-save"></span> @ViewBag.buttontitle</button>
+                        &nbsp;&nbsp;
+                        <a href="/Hospital/Admission_Slip" class="btn btn-danger"><span class="fa fa-times"></span> Cancel</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script type="text/javascript">
+    $("#drpregtype").select2();
+    $("#drpopd").select2();
+    $("#drPatient").select2();
+
+   
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        var chkType = $('#chkopId').val();
+        if (chkType == "Referred from OPD")
+        {
+            $('#opdidhideshow').show();
+            document.getElementById("drpopd").required = true;
+            document.getElementById("opdidhideshow").style.display = "";
+        }
+        else if(chkType == "Direct IPD Admission")
+        {
+            $('#opdidhideshow').hide();
+            document.getElementById("drpopd").required = false;
+            document.getElementById("opdidhideshow").style.display = "none";
+        }
+    });
+</script>
+<script type="text/javascript">
+
+    function checkNum() {
+        if ((event.keyCode > 64 && event.keyCode < 91) || (event.keyCode > 96 && event.keyCode < 123) || event.keyCode == 8 || event.keyCode == 32)
+            return true;
+        else {
+            alert("Please enter only char");
+            return false;
+        }
+    }
+
+    $('#drpregtype').change(function () {
+        var Type = $('#drpregtype').val();
+        if (Type == 'Referred from OPD') {
+
+            $('#PatientNameIPD').hide();
+            $('#PatientNameOPD').show();
+            document.getElementById("opdidhideshow").style.display = "";
+            document.getElementById("PatientNameOPD").style.display = "";
+            document.getElementById("PatientNameIPD").style.display = "none";
+            document.getElementById("PatientNameIPD").required = false;
+        }
+        else {
+            $('#opdidhideshow').hide();
+            $('#PatientNameIPD').show();
+            $('#PatientNameOPD').hide();
+            $('#drpopd').prop("required", false);
+            document.getElementById("drpopd").required = false;
+            document.getElementById("drproadparent").required = false;
+            document.getElementById("P_Name").required = false;
+            document.getElementById("opdidhideshow").style.display = "none";
+            document.getElementById("PatientNameOPD").style.display = "none";
+            document.getElementById("PatientNameIPD").style.display = "";
+
+        }
+    });
+
+</script>
+
+<script type="text/javascript">
+    $('#drpopd').change(function () {
+        var Id = $('#drpopd').val();
+        if (Id != "") {
+            $.ajax({
+                url: '/Hospital/GetPatientDetail_OPD',
+                dataType: "json",
+                type: "POST",
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ Id: Id }),
+                async: true,
+                processData: false,
+                cache: false,
+                success: FillSubDistrict,
+                error: function (xhr) {
+                }
+            });
+        }
+    });
+    function FillSubDistrict(result) {
+
+        var items = result.SubDistrictList;
+        for (i = 0; i < items.length; i++) {
+            $('#P_Name').val(items[0].Patient_Name)
+            $('#PhoneNo').val(items[0].MobileNo)
+            $('#Address').val(items[0].Address)
+            $('#Age').val(items[0].Age)
+            $('#Gender').val(items[0].Sex)
+            $('#Address').val(items[0].Address)
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    $('#drPatient').change(function () {
+        var Id = $('#drPatient').val();
+        if (Id != "") {
+            $.ajax({
+                url: '/Hospital/GetPatientDetail_IPD',
+                dataType: "json",
+                type: "POST",
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ Id: Id }),
+                async: true,
+                processData: false,
+                cache: false,
+                success: FillSubDistrict,
+                error: function (xhr) {
+                }
+            });
+        }
+    });
+    function FillSubDistrict(result) {
+
+        var items = result.SubDistrictList;
+        for (i = 0; i < items.length; i++) {
+            $('#drPatient option:selected').text(items[0].Patient_Name);
+            $('#select2-drPatient-container').text(items[0].Patient_Name);
+            $('#PhoneNo').val(items[0].MobileNo)
+            $('#Address').val(items[0].Address)
+            $('#Age').val(items[0].Age)
+            $('#Gender').val(items[0].Sex)
+            $('#Address').val(items[0].Address)
+
+        }
+    }
+
+    
+</script>
+

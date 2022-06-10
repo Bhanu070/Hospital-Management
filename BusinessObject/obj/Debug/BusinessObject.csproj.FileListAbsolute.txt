@@ -4,3 +4,15 @@ D:\Hospital Management\Hospital Management\BusinessObject\obj\Debug\BusinessObje
 D:\Hospital Management\Hospital Management\BusinessObject\obj\Debug\BusinessObject.csproj.CoreCompileInputs.cache
 D:\Hospital Management\Hospital Management\BusinessObject\obj\Debug\BusinessObject.dll
 D:\Hospital Management\Hospital Management\BusinessObject\obj\Debug\BusinessObject.pdb
+C:\Server_UK\Hospital-Management\BusinessObject\bin\Debug\BusinessObject.dll
+C:\Server_UK\Hospital-Management\BusinessObject\bin\Debug\BusinessObject.pdb
+C:\Server_UK\Hospital-Management\BusinessObject\obj\Debug\BusinessObject.csproj.CoreCompileInputs.cache
+C:\Server_UK\Hospital-Management\BusinessObject\obj\Debug\BusinessObject.dll
+C:\Server_UK\Hospital-Management\BusinessObject\obj\Debug\BusinessObject.pdb
+C:\Server_UK\Hospital-Management\BusinessObject\obj\Debug\BusinessObject.csproj.AssemblyReference.cache
+C:\Server_UK\Hospital-Management\Hospital-Management\BusinessObject\bin\Debug\BusinessObject.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\BusinessObject\bin\Debug\BusinessObject.pdb
+C:\Server_UK\Hospital-Management\Hospital-Management\BusinessObject\obj\Debug\BusinessObject.csproj.AssemblyReference.cache
+C:\Server_UK\Hospital-Management\Hospital-Management\BusinessObject\obj\Debug\BusinessObject.csproj.CoreCompileInputs.cache
+C:\Server_UK\Hospital-Management\Hospital-Management\BusinessObject\obj\Debug\BusinessObject.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\BusinessObject\obj\Debug\BusinessObject.pdb

@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IPD_Admission_SlipDB.cs" />
     <Compile Include="Hospital_Doctor_MasterDB.cs" />
     <Compile Include="Hospital_Pathology_OPD_MainDB.cs" />
     <Compile Include="Hospital_Patient_MasterDB.cs" />

@@ -16,3 +16,21 @@ D:\Hospital Management\Hospital Management\DataLayer\obj\Debug\DataLayer.csproj.
 D:\Hospital Management\Hospital Management\DataLayer\obj\Debug\DataLayer.csproj.CopyComplete
 D:\Hospital Management\Hospital Management\DataLayer\obj\Debug\DataLayer.dll
 D:\Hospital Management\Hospital Management\DataLayer\obj\Debug\DataLayer.pdb
+C:\Server_UK\Hospital-Management\DataLayer\bin\Debug\DataLayer.dll
+C:\Server_UK\Hospital-Management\DataLayer\bin\Debug\DataLayer.pdb
+C:\Server_UK\Hospital-Management\DataLayer\bin\Debug\BusinessObject.dll
+C:\Server_UK\Hospital-Management\DataLayer\bin\Debug\BusinessObject.pdb
+C:\Server_UK\Hospital-Management\DataLayer\obj\Debug\DataLayer.csproj.AssemblyReference.cache
+C:\Server_UK\Hospital-Management\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
+C:\Server_UK\Hospital-Management\DataLayer\obj\Debug\DataLayer.csproj.CopyComplete
+C:\Server_UK\Hospital-Management\DataLayer\obj\Debug\DataLayer.dll
+C:\Server_UK\Hospital-Management\DataLayer\obj\Debug\DataLayer.pdb
+C:\Server_UK\Hospital-Management\Hospital-Management\DataLayer\bin\Debug\DataLayer.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\DataLayer\bin\Debug\DataLayer.pdb
+C:\Server_UK\Hospital-Management\Hospital-Management\DataLayer\bin\Debug\BusinessObject.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\DataLayer\bin\Debug\BusinessObject.pdb
+C:\Server_UK\Hospital-Management\Hospital-Management\DataLayer\obj\Debug\DataLayer.csproj.AssemblyReference.cache
+C:\Server_UK\Hospital-Management\Hospital-Management\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
+C:\Server_UK\Hospital-Management\Hospital-Management\DataLayer\obj\Debug\DataLayer.csproj.CopyComplete
+C:\Server_UK\Hospital-Management\Hospital-Management\DataLayer\obj\Debug\DataLayer.dll
+C:\Server_UK\Hospital-Management\Hospital-Management\DataLayer\obj\Debug\DataLayer.pdb

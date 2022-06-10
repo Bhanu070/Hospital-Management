@@ -16,8 +16,7 @@ namespace Hospital_Management.AppCode
     public class Constant
     {
         //
-        // GET: /Search/ rahultoday ,today agian
-        // Bhanu sharama
+        // GET: /Search/
         /// <summary>
         /// Binding the pager view
         /// </summary>
@@ -224,27 +223,30 @@ namespace Hospital_Management.AppCode
                 return items;
             }
         }
-        public static List<ListItem> TownVillage
+        public static List<ListItem> RegistrationType
         {
             get
             {
                 List<ListItem> items = new List<ListItem>
                      {
-                             new ListItem{ Text="Rural Area", Value = "1" },
-                             new ListItem{ Text="Urban Area", Value = "2" },
+                             new ListItem{ Text="Direct IPD Admission", Value = "Direct IPD Admission" },
+                             new ListItem{ Text="Referred from OPD", Value = "Referred from OPD" },
 
                      };
                 return items;
             }
         }
-        public static List<ListItem> ReverseParameter
+
+        public static List<ListItem> WardType
         {
             get
             {
                 List<ListItem> items = new List<ListItem>
                      {
-                             new ListItem{ Text="Y", Value = "Y" },
-                             new ListItem{ Text="N", Value = "N" },
+                             new ListItem{ Text="General ward", Value = "General ward" },
+                             new ListItem{ Text="NICU", Value = "NICU" },
+                             new ListItem{Text="ICU",Value="ICU"},
+                             new ListItem{Text="PICU",Value="PICU"},
                      };
                 return items;
             }
@@ -315,7 +317,7 @@ namespace Hospital_Management.AppCode
             }
         }
 
-        public static List<ListItem> TDSPer
+        public static List<ListItem> BedNumber
         {
             get
             {
@@ -346,14 +348,14 @@ namespace Hospital_Management.AppCode
             }
         }
 
-        public static List<ListItem> ClassUserType
+        public static List<ListItem> BedType
         {
             get
             {
                 List<ListItem> items = new List<ListItem>
                      {
-                             new ListItem{ Text="Free", Value = "Free" },
-                             new ListItem{ Text="Paid", Value = "Paid" },
+                             new ListItem{ Text="A.C", Value = "A.C" },
+                             new ListItem{ Text="Normal", Value = "Normal" },
                      };
                 return items;
             }
