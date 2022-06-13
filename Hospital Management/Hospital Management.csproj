@@ -2606,6 +2606,10 @@
     <Content Include="Views\Hospital\IPD_Admission_Slip.cshtml" />
     <Content Include="Views\Hospital\AllForms\AddIPD_Admission_Slip.cshtml" />
     <Content Include="Views\HospitalPartial\_Admission_Slip.cshtml" />
+    <Content Include="Views\Hospital\IPD_Main.cshtml" />
+    <Content Include="Views\HospitalPartial\_IPD.cshtml" />
+    <Content Include="Views\HospitalPartial\_IPD_Pending.cshtml" />
+    <Content Include="Views\Hospital\AllForms\AddIPD.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

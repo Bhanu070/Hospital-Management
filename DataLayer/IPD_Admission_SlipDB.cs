@@ -107,7 +107,7 @@ namespace DataLayer
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "IPD_Admission_Slip_Delete";
-            cmd.Parameters.AddWithValue("@AdmissionId", artype.AdmissionId);
+            cmd.Parameters.AddWithValue("@Id", artype.AdmissionId);
             cmd.Connection = con;
             cmd.Connection.Open();
             cmd.ExecuteNonQuery();

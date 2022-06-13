@@ -1,0 +1,101 @@
+﻿@model Hospital_Management.Models.MainModel
+
+@if (ViewBag.Msg != "")
+{
+    <div id="msg">
+        <h6 class="alert text-center" style="background-color:#07ac64; color:white">
+            @ViewBag.Msg &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="alert-dismissable" data-dismiss="alert"> <span class="fa fa-times"></span> </a>
+        </h6>
+    </div>
+}
+<script>
+    $(document).ready(function () {
+        setTimeout(function () {
+            $("#msg").fadeOut();
+        }, 5000);
+    });
+</script>
+
+
+<table class="table table-striped- table-bordered table-hover table-checkable table-sm" id="table_pend">
+    <thead>
+        <tr>
+            <th style="width:2%; text-align:center;">S.No. </th>
+            <th> Patient Name </th>
+            <th> OPD No </th>
+            <th> Doctor </th>
+            <th> Payment Status </th>
+            <th> Created On </th>
+            <th> Created By </th>
+            <th> Updated On </th>
+            <th> Updated By </th>
+
+            <th> Action </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int SNo = 0;
+        }
+      
+            @foreach (var item in Model.IPD_Main_DetailsList)
+            {
+                SNo++;
+        <tr class="odd gradeX">
+            <td> @SNo </td>
+            <td> @item.Patient_Name    @item.Patient_UID </td>
+
+            <td> @item.IPD_No </td>
+            <td>
+                @if (item.Doc_Name != null || item.Doc_Name != "")
+                {
+                    @item.Doc_Name
+                }
+                else
+                {
+                    <span>N/A</span>
+                }
+            </td>
+            <td>
+
+                @if (item.Status == "Complete")
+                {
+                    <span class="badge badge-success  "> Completed </span>
+                }
+                else
+                {
+                    <span class="badge badge-danger"> Pending </span>
+                }
+            </td>
+            <td> @item.CreatedOn.ToString("dd-MM-yyyy") </td>
+
+            <td> @item.CreatedBy </td>
+
+            <td> @item.UpdatedOn.ToString("dd-MM-yyyy") </td>
+
+            <td>@item.UpdatedBy  </td>
+
+
+            <td>
+                <a href="~/Report/OPD_Receipt.aspx?Id=@item.MainId" title="Print" target="_blank" onclick="return confirm('Do you want to See Report?');" class="btn btn-bg-success btn-sm text-white">
+                    Print
+                </a>
+                <a href="/Hospital/AddIPD?Id=@item.MainId" class="btn btn-icon btn-warning btn-xs mr-1"><i class="fa fa-edit" data-container="body" data-toggle="tooltip" data-placement="top" title=""></i></a>
+
+                @if ((item.Status == "Complete" || item.Status == "Pending") && ViewBag.Role == "Admin")
+                {
+                }
+                else if (item.Status == "Pending" && ViewBag.Role == "Operator")
+
+                {
+                    <a href="/Hospital/AddIPD?Id=@item.MainId  " class="btn btn-icon btn-warning btn-xs mr-1"><i class="fa fa-edit" data-container="body" data-toggle="tooltip" data-placement="top" title=""></i></a>
+                }
+
+            </td>
+        </tr>
+            }
+    </tbody>
+</table>
+
+<br />
+

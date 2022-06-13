@@ -47,9 +47,10 @@ namespace Hospital_Management.Models
 
             this.IPD_Admission_Slip = new IPD_Admission_Slip();
             this.IPD_Admission_SlipList = new List<IPD_Admission_Slip>();
+
+            this.IPD_Main_Details = new IPD_Main_Details();
+            this.IPD_Main_DetailsList = new List<IPD_Main_Details>();
             
-
-
         }
 
 
@@ -85,6 +86,10 @@ namespace Hospital_Management.Models
 
         public IPD_Admission_Slip IPD_Admission_Slip { get; set; }
         public List<IPD_Admission_Slip> IPD_Admission_SlipList { get; set; }
+
+        public IPD_Main_Details IPD_Main_Details { get; set; }
+        public List<IPD_Main_Details> IPD_Main_DetailsList { get; set; }
+
         
     }
 }

@@ -1269,7 +1269,7 @@ namespace Hospital_Management.Controllers
                 itemnew.Login = LoginManager.GetById(RefId);
                 itemnew.PermissionList = PermissionManager.GetByUserId(RefId);
 
-                return View("~/Views/Hospital/AllForms/AddIPD_Admission_Slip.cshtml", new MainModel { PermissionList = itemnew.PermissionList, Login = itemnew.Login, IPD_Admission_SlipList = itemnew.IPD_Admission_SlipList, IPD_Admission_Slip = itemnew.IPD_Admission_Slip, Patient_Master= itemnew.Patient_Master });
+                return View("~/Views/Hospital/AllForms/AddIPD_Admission_Slip.cshtml", new MainModel { PermissionList = itemnew.PermissionList, Login = itemnew.Login, IPD_Admission_SlipList = itemnew.IPD_Admission_SlipList, IPD_Admission_Slip = itemnew.IPD_Admission_Slip, Patient_Master = itemnew.Patient_Master });
             }
             else
                 return RedirectToAction("LogIn", "Hospital");
@@ -1302,7 +1302,7 @@ namespace Hospital_Management.Controllers
             Guid OPDId = Guid.Empty;
             Guid.TryParse(coll["drpopd"], out OPDId);
 
-            if(coll["drpregtype"]== "Direct IPD Admission")
+            if (coll["drpregtype"] == "Direct IPD Admission")
             {
                 obj.Patient_id = Guid.Parse(coll["drPatient"]);
             }
@@ -1319,7 +1319,7 @@ namespace Hospital_Management.Controllers
             obj.WardName = coll["drpWardType"];
             obj.RoomName = coll["Room"];
             obj.BedNo = Convert.ToInt32(coll["drpBedNo"]);
-            obj.AC_Normal =coll["drpBedType"];
+            obj.AC_Normal = coll["drpBedType"];
             obj.Status = "Complete";
             obj.Ipd_Reg_Date = Convert.ToDateTime(coll["RegDate"]);
             obj.extra = "";
@@ -1338,7 +1338,7 @@ namespace Hospital_Management.Controllers
             {
                 obj.AdmissionId = Guid.NewGuid();
                 obj.CreatedBy = obj.UpdatedBy = ViewBag.UserName;
-                obj.CreatedOn = obj.UpdatedOn=  DateTime.Now;
+                obj.CreatedOn = obj.UpdatedOn = DateTime.Now;
                 IPD_Admission_SlipManager.Add(obj);
 
                 TempData[Constant.INFO_MESSAGE] = "Record Added Successfully.";
@@ -1360,8 +1360,316 @@ namespace Hospital_Management.Controllers
             var resultsub = new { SubDistrictList = SubDistrictList };
             return (Json(resultsub, JsonRequestBehavior.AllowGet));
         }
-        
+
+        public ActionResult DeleteAdmission_Slip(Guid Id)
+        {
+            MainModel itemnew = new MainModel();
+
+            if (Id != Guid.Empty)
+            {
+                IPD_Admission_Slip obj = IPD_Admission_SlipManager.GetById(Id);
+                if (obj != null)
+                    IPD_Admission_SlipManager.Delete(obj);
+
+                TempData[Constant.INFO_MESSAGE] = "Record Deleted Successfully.";
+
+            }
+            else
+            {
+                TempData[Constant.INFO_MESSAGE] = "Record Not Deleted.";
+            }
+
+            return RedirectToAction("Admission_Slip");
+        }
         #endregion
+
+        #region IPD
+        public ActionResult IPD()
+        {
+            if (Request.Cookies["hospital@#123"] != null)
+            {
+                MainModel itemnew = new MainModel();
+                //Guid UserId = new Guid();
+                itemnew.IPD_Main_DetailsList = IPD_Main_DetailsManager.GetAll().ToList();
+                string sid = Request.Cookies["hospital@#123"].Value;
+                string[] AllArray = sid.Split(',');
+                ViewBag.UserName = AllArray[1];
+                ViewBag.Role = AllArray[2];
+                ViewBag.Pic = AllArray[3];
+                ViewBag.Msg = "";
+                List<Patient_Master> PatientList = Patient_MasterManager.GetAll();
+                ViewBag.plist = new SelectList(PatientList, "Patient_Id", "Patient_Name");
+
+                List<Doctor_Master> DoctorList = Doctor_MasterManager.GetAll();
+                ViewBag.dlist = new SelectList(DoctorList, "Doc_Id", "Doc_Name");
+                ViewBag.paymentmode = new SelectList(Constant.paymentmodehospital, "Value", "Text");
+
+                Guid RefId = Guid.Empty;
+                Guid.TryParse(AllArray[0], out RefId);
+                itemnew.Login = LoginManager.GetById(RefId);
+                itemnew.PermissionList = PermissionManager.GetByUserId(RefId);
+
+                return View("~/Views/Hospital/IPD_Main.cshtml", new MainModel { PermissionList = itemnew.PermissionList, Login = itemnew.Login, IPD_Main_DetailsList = itemnew.IPD_Main_DetailsList, Pathology_OPD_Main_Details = itemnew.Pathology_OPD_Main_Details });
+            }
+            else
+                return RedirectToAction("LogIn", "Hospital");
+        }
+        public ActionResult AddIPD(Guid Id)
+        {
+            if (Request.Cookies["hospital@#123"] != null)
+            {
+                MainModel itemnew = new MainModel();
+                //Guid UserId = new Guid();
+
+                string sid = Request.Cookies["hospital@#123"].Value;
+                string[] AllArray = sid.Split(',');
+                ViewBag.UserName = AllArray[1];
+                ViewBag.Role = AllArray[2];
+                ViewBag.Pic = AllArray[3];
+
+                List<Patient_Master> PatientList = Patient_MasterManager.GetAll();
+
+
+                List<Doctor_Master> DoctorList = Doctor_MasterManager.GetAll();
+
+
+
+
+                if (Id != Guid.Empty)
+                {
+
+
+                    itemnew.IPD_Main_Details = IPD_Main_DetailsManager.GetById(Id);
+                    ViewBag.IPDNo = itemnew.IPD_Main_Details.IPD_No;
+                    if (itemnew.IPD_Main_Details.Doc_Id != Guid.Empty)
+                        ViewBag.dlist = new SelectList(DoctorList, "Doc_Id", "Doc_Name", itemnew.IPD_Main_Details.Doc_Id);
+                    else
+                        ViewBag.dlist = new SelectList(DoctorList, "Doc_Id", "Doc_Name");
+                        
+                    ViewBag.paymentmode = new SelectList(Constant.paymentmodehospital, "Value", "Text", itemnew.IPD_Main_Details.Payment_Mode);
+                    ViewBag.paymentstatus = new SelectList(Constant.paymentstatus, "Value", "Text", itemnew.IPD_Main_Details.Status);
+
+                    ViewBag.TotaalAmount = itemnew.IPD_Main_Details.Total_amount;
+                    ViewBag.TotaalDiscount = itemnew.IPD_Main_Details.Total_deduction;
+                    ViewBag.NetAmouunt = itemnew.IPD_Main_Details.Gross_total_amount;
+                    ViewBag.NetFinalAmount = itemnew.IPD_Main_Details.Net_total_amount;
+                    // ViewBag.TotaalNetPaid = itemnew.IPD_Main_Details.PaidAmount;
+                    itemnew.Service_type_MasterList = Service_type_MasterManager.GetAll_Service_GetById("IPD", Id);
+                    ViewBag.plist = new SelectList(PatientList, "Patient_Id", "Patient_Name", itemnew.IPD_Main_Details.Patient_id);
+                    List<Patient_Master> SubDistrictList = Patient_MasterManager.GetAll().Where(a => a.Patient_Id == itemnew.IPD_Main_Details.Patient_id).OrderBy(a => a.Patient_Name).ToList();
+
+                    ViewBag.buttontitle = "Update";
+                    ViewBag.Age = SubDistrictList[0].Age;
+                    ViewBag.Sex = SubDistrictList[0].Sex;
+                    ViewBag.Address = SubDistrictList[0].Address;
+                    ViewBag.PaidAmount = itemnew.Pathology_OPD_Main_Details.PaidAmount;
+                }
+                else
+                {
+                    itemnew.Service_type_MasterList = Service_type_MasterManager.GetAll_Service("OPD");
+
+                    ViewBag.dlist = new SelectList(DoctorList, "Doc_Id", "Doc_Name");
+                    ViewBag.paymentmode = new SelectList(Constant.paymentmodehospital, "Value", "Text");
+                    ViewBag.paymentstatus = new SelectList(Constant.paymentstatus, "Value", "Text");
+
+                    ViewBag.plist = new SelectList(PatientList, "Patient_Id", "Patient_Name");
+                    ViewBag.date = DateTime.Now;
+                    ViewBag.buttontitle = "Submit";
+                    ViewBag.Age = null;
+                    ViewBag.Sex = null;
+                    ViewBag.Address = null;
+                    ViewBag.PaidAmount = 0.00;
+                    ViewBag.TotaalAmount = 0.00;
+                    ViewBag.TotaalDiscount = 0.00;
+                    ViewBag.NetAmouunt = 0.00;
+                    ViewBag.NetFinalAmount = 0.00;
+                    ViewBag.TotaalNetPaid = 0.00;
+                }
+
+                Guid RefId = Guid.Empty;
+                Guid.TryParse(AllArray[0], out RefId);
+                itemnew.Login = LoginManager.GetById(RefId);
+                itemnew.PermissionList = PermissionManager.GetByUserId(RefId);
+
+                return View("~/Views/Hospital/AllForms/AddIPD.cshtml", new MainModel { PermissionList = itemnew.PermissionList, Login = itemnew.Login, Pathology_OPD_Main_Details = itemnew.Pathology_OPD_Main_Details, Service_type_MasterList = itemnew.Service_type_MasterList, IPD_Main_Details=itemnew.IPD_Main_Details });
+            }
+            else
+                return RedirectToAction("LogIn", "Hospital");
+        }
+
+        public ActionResult SaveIPD(FormCollection coll)
+        {
+
+            MainModel itemnew = new MainModel();
+            string sid = Request.Cookies["hospital@#123"].Value;
+            string[] AllArray = sid.Split(',');
+            ViewBag.UserName = AllArray[1];
+            ViewBag.Role = AllArray[2];
+            ViewBag.Pic = AllArray[3];
+
+            ViewBag.Msg = (TempData[Constant.INFO_MESSAGE] != null ? TempData[Constant.INFO_MESSAGE] : string.Empty).ToString();
+            TempData[Constant.INFO_MESSAGE] = "";
+            ViewBag.TypeCss = "success";
+            ViewBag.MsgTitle = "Success!";
+            Guid Id = Guid.Empty;
+            Guid.TryParse(coll["Id"], out Id);
+
+            IPD_Main_Details obj = new IPD_Main_Details();
+            if (Id != Guid.Empty)
+            {
+                IPD_Main_Details oldobj = IPD_Main_DetailsManager.GetById(Id);
+                if (oldobj != null)
+                    obj = oldobj;
+            }
+
+            obj.MainId = Guid.NewGuid();
+
+            itemnew.Service_type_MasterList = Service_type_MasterManager.GetAll_Service("OPD");
+            obj.Patient_id = Guid.Parse(coll["drpplist"]);
+            obj.Doc_Id = Guid.Parse(coll["drpdlist"]);
+            obj.Payment_Mode = coll["drppayment"];
+            obj.Admission_Date = DateTime.Now;
+            obj.Discharge_Date = DateTime.Now;
+            obj.Advance = decimal.Parse(coll["advance_amount"]);
+            obj.Additonal_discount = decimal.Parse(coll["Additonal_discount"]);
+            obj.TCS = decimal.Parse(coll["tcs_amount"]);
+
+            obj.Remarks = coll["Remarks"];
+            obj.Status = coll["drppstatus"];
+            obj.extra = "extra";
+            obj.extra1 = "extra1";
+            obj.extra2 = "extra2";
+
+            if (Id != Guid.Empty)
+            {
+                obj.MainId = Id;
+                obj.UpdatedBy = ViewBag.UserName;
+                obj.UpdatedOn = DateTime.Now;
+                IPD_Main_DetailsManager.Update(obj);
+
+                foreach (var item in itemnew.Service_type_MasterList)
+                {
+                    string abc = coll["chkapprove_" + item.ServiceId];
+                    ViewBag.nid = Guid.NewGuid();
+                    int unt = int.Parse(coll["unit_" + item.ServiceId]);
+
+                    Service_type_SubDetails obj1 = new Service_type_SubDetails();
+                    if (Id != Guid.Empty)
+                    {
+                        Service_type_SubDetails oldobj = Service_type_SubDetailsManager.GetById(item.ServiceId);
+                        if (oldobj != null)
+                            obj1 = oldobj;
+                    }
+
+                    if (unt != 0)
+                    {
+
+                        decimal pamt = decimal.Parse(coll["amt_" + item.ServiceId]);
+
+                        Service_type_Master objjj = Service_type_MasterManager.GetById(item.ServiceId);
+
+                        if (objjj != null)
+                        {
+                            Service_type_SubDetails objj = new Service_type_SubDetails();
+                            ViewBag.sid = item.ServiceId;
+                            objj.ServiceId = ViewBag.sid;
+                            objj.Price = objjj.Price;
+                            objj.Discount = objjj.Discount;
+                            objj.Unit = unt;
+                            objj.PaidAmount = pamt;
+
+                            objj.CreatedBy = objj.UpdatedBy = ViewBag.UserName;
+                            objj.CreatedOn = objj.UpdatedOn = DateTime.Now;
+                            objj.Status = "status";
+
+                            if (Id != Guid.Empty)
+                            {
+                                objj.MainId = Id;
+                                Service_type_SubDetailsManager.Add_temp(objj);
+                            }
+
+                        }
+                    }
+                }
+
+                Service_type_SubDetailsManager.FinalUpdate(Id);
+                TempData[Constant.INFO_MESSAGE] = "Record Updated Successfully";
+            }
+            else
+            {
+                obj.MainId = obj.MainId;
+                obj.CreatedBy = obj.UpdatedBy = ViewBag.UserName;
+                obj.CreatedOn = obj.UpdatedOn = DateTime.Now;
+                IPD_Main_DetailsManager.Add(obj);
+                foreach (var item in itemnew.Service_type_MasterList)
+                {
+                    string abc = coll["chkapprove_" + item.ServiceId];
+                    ViewBag.nid = Guid.NewGuid();
+                    int unt = int.Parse(coll["unit_" + item.ServiceId]);
+                    if (unt != 0)
+                    {
+
+                        decimal pamt = decimal.Parse(coll["amt_" + item.ServiceId]);
+                        Service_type_Master objjj = Service_type_MasterManager.GetById(item.ServiceId);
+                        if (objjj != null)
+                        {
+                            Service_type_SubDetails objj = new Service_type_SubDetails();
+                            ViewBag.sid = item.ServiceId;// objj.ServiceId;
+                            objj.ServiceId = ViewBag.sid;
+                            objj.MainId = obj.MainId;
+                            objj.Price = objjj.Price;
+                            objj.Discount = objjj.Discount;
+                            objj.Unit = unt;
+                            objj.PaidAmount = pamt;
+
+                            objj.CreatedBy = objj.UpdatedBy = ViewBag.UserName;
+                            objj.CreatedOn = objj.UpdatedOn = DateTime.Now;
+                            objj.Status = "status";
+
+                            Service_type_SubDetailsManager.Add(objj);
+
+
+                        }
+                    }
+                }
+                TempData[Constant.INFO_MESSAGE] = "Record Added Successfully.";
+            }
+            return Redirect("IPD?Id=00000000-0000-0000-0000-000000000000");
+        }
+
+        public ActionResult IPD_Pending()
+        {
+            if (Request.Cookies["hospital@#123"] != null)
+            {
+                MainModel itemnew = new MainModel();
+                //Guid UserId = new Guid();
+                itemnew.Pathology_OPD_Main_DetailsList = Pathology_OPD_Main_DetailsManager.GetAll_Pending("Pending").ToList();
+                string sid = Request.Cookies["hospital@#123"].Value;
+                string[] AllArray = sid.Split(',');
+                ViewBag.UserName = AllArray[1];
+                ViewBag.Role = AllArray[2];
+                ViewBag.Pic = AllArray[3];
+                ViewBag.Msg = "";
+                List<Patient_Master> PatientList = Patient_MasterManager.GetAll();
+                ViewBag.plist = new SelectList(PatientList, "Patient_Id", "Patient_Name");
+
+                List<Doctor_Master> DoctorList = Doctor_MasterManager.GetAll();
+                ViewBag.dlist = new SelectList(DoctorList, "Doc_Id", "Doc_Name");
+                ViewBag.paymentmode = new SelectList(Constant.paymentmodehospital, "Value", "Text");
+
+                Guid RefId = Guid.Empty;
+                Guid.TryParse(AllArray[0], out RefId);
+                itemnew.Login = LoginManager.GetById(RefId);
+                itemnew.PermissionList = PermissionManager.GetByUserId(RefId);
+
+                ViewBag.status = "pending";
+                return View("~/Views/Hospital/IPD_Main.cshtml", new MainModel { PermissionList = itemnew.PermissionList, Login = itemnew.Login, Pathology_OPD_Main_DetailsList = itemnew.Pathology_OPD_Main_DetailsList, Pathology_OPD_Main_Details = itemnew.Pathology_OPD_Main_Details });
+            }
+            else
+                return RedirectToAction("LogIn", "Hospital");
+        }
+        #endregion
+
 
 
 
