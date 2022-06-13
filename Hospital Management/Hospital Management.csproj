@@ -148,6 +148,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllDataSet\DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="AppCode\Constanst.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -166,6 +171,12 @@
       <DependentUpon>Hospital_Admission.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CR_Reports\IPD_Receipt.cs">
+      <DependentUpon>IPD_Receipt.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="CR_Reports\OPD_Receipt.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -182,6 +193,13 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MainModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\IPD_Receipt.aspx.cs">
+      <DependentUpon>IPD_Receipt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report\IPD_Receipt.aspx.designer.cs">
+      <DependentUpon>IPD_Receipt.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Report\OPD_Receipt.aspx.cs">
       <DependentUpon>OPD_Receipt.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2407,6 +2425,7 @@
     <Content Include="login\js\jquery.min.js" />
     <Content Include="login\js\main.js" />
     <Content Include="login\js\popper.min.js" />
+    <Content Include="Report\IPD_Receipt.aspx" />
     <Content Include="Report\OPD_Receipt.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -2458,6 +2477,17 @@
     <Content Include="assets\plugins\global\fonts\summernote\summernote.woff2" />
     <Content Include="assets_timeline\css\style.scss" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="AllDataSet\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
+    <None Include="AllDataSet\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="AllDataSet\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -2641,6 +2671,10 @@
     <EmbeddedResource Include="CR_Reports\Hospital_Admission.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Hospital_Admission1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CR_Reports\IPD_Receipt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>IPD_Receipt.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CR_Reports\OPD_Receipt.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

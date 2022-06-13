@@ -161,8 +161,6 @@ namespace Hospital_Management.Controllers
             return (Json(result, JsonRequestBehavior.AllowGet));
         }
 
-
-
         public ActionResult ChangePassword(Guid Id)
         {
             if (Request.Cookies["hospital@#123"] != null)
@@ -250,8 +248,6 @@ namespace Hospital_Management.Controllers
             decryptpwd = new String(decoded_char);
             return decryptpwd;
         }
-
-
 
         public ActionResult Doctor(Guid Id)
         {
@@ -643,9 +639,6 @@ namespace Hospital_Management.Controllers
             itemnew.Service_type_MasterList = Service_type_MasterManager.GetAll_All().Where(a => a.ServiceType == service).OrderBy(a => a.ServiceName).ToList();
             return PartialView("~/Views/HospitalPartial/_ServiceType.cshtml", new MainModel { Service_type_MasterList = itemnew.Service_type_MasterList });
         }
-
-
-
 
         public ActionResult OPD()
         {
@@ -1428,26 +1421,31 @@ namespace Hospital_Management.Controllers
                 ViewBag.Pic = AllArray[3];
 
                 List<Patient_Master> PatientList = Patient_MasterManager.GetAll();
-
-
                 List<Doctor_Master> DoctorList = Doctor_MasterManager.GetAll();
-
-
-
-
                 if (Id != Guid.Empty)
                 {
-
-
                     itemnew.IPD_Main_Details = IPD_Main_DetailsManager.GetById(Id);
                     ViewBag.IPDNo = itemnew.IPD_Main_Details.IPD_No;
                     if (itemnew.IPD_Main_Details.Doc_Id != Guid.Empty)
                         ViewBag.dlist = new SelectList(DoctorList, "Doc_Id", "Doc_Name", itemnew.IPD_Main_Details.Doc_Id);
                     else
                         ViewBag.dlist = new SelectList(DoctorList, "Doc_Id", "Doc_Name");
-                        
+
                     ViewBag.paymentmode = new SelectList(Constant.paymentmodehospital, "Value", "Text", itemnew.IPD_Main_Details.Payment_Mode);
                     ViewBag.paymentstatus = new SelectList(Constant.paymentstatus, "Value", "Text", itemnew.IPD_Main_Details.Status);
+
+                    string date = itemnew.IPD_Main_Details.Admission_Date.ToString("yyyy-MM-dd");
+                    string disdate = itemnew.IPD_Main_Details.Discharge_Date.ToString("yyyy-MM-dd");
+                    if (date == "01-01-0001 00:00:00" || date == "0001-01-01")
+                        ViewBag.AdmisDate = DateTime.Now.ToString("yyyy-MM-dd");
+                    else
+                        ViewBag.AdmisDate = itemnew.IPD_Main_Details.Admission_Date.ToString("yyyy-MM-dd");
+
+                    if (disdate == "01-01-0001 00:00:00" || disdate == "0001-01-01")
+                        ViewBag.DischargeDate = DateTime.Now.ToString("yyyy-MM-dd");
+                    else
+                        ViewBag.DischargeDate = itemnew.IPD_Main_Details.Discharge_Date.ToString("yyyy-MM-dd");
+
 
                     ViewBag.TotaalAmount = itemnew.IPD_Main_Details.Total_amount;
                     ViewBag.TotaalDiscount = itemnew.IPD_Main_Details.Total_deduction;
@@ -1458,6 +1456,7 @@ namespace Hospital_Management.Controllers
                     ViewBag.plist = new SelectList(PatientList, "Patient_Id", "Patient_Name", itemnew.IPD_Main_Details.Patient_id);
                     List<Patient_Master> SubDistrictList = Patient_MasterManager.GetAll().Where(a => a.Patient_Id == itemnew.IPD_Main_Details.Patient_id).OrderBy(a => a.Patient_Name).ToList();
 
+
                     ViewBag.buttontitle = "Update";
                     ViewBag.Age = SubDistrictList[0].Age;
                     ViewBag.Sex = SubDistrictList[0].Sex;
@@ -1466,13 +1465,15 @@ namespace Hospital_Management.Controllers
                 }
                 else
                 {
-                    itemnew.Service_type_MasterList = Service_type_MasterManager.GetAll_Service("OPD");
+                    itemnew.Service_type_MasterList = Service_type_MasterManager.GetAll_Service("IPD");
 
                     ViewBag.dlist = new SelectList(DoctorList, "Doc_Id", "Doc_Name");
                     ViewBag.paymentmode = new SelectList(Constant.paymentmodehospital, "Value", "Text");
                     ViewBag.paymentstatus = new SelectList(Constant.paymentstatus, "Value", "Text");
 
                     ViewBag.plist = new SelectList(PatientList, "Patient_Id", "Patient_Name");
+                    ViewBag.AdmisDate = DateTime.Now.ToString("yyyy-MM-dd");
+                    ViewBag.DischargeDate = DateTime.Now.ToString("yyyy-MM-dd");
                     ViewBag.date = DateTime.Now;
                     ViewBag.buttontitle = "Submit";
                     ViewBag.Age = null;
@@ -1491,7 +1492,7 @@ namespace Hospital_Management.Controllers
                 itemnew.Login = LoginManager.GetById(RefId);
                 itemnew.PermissionList = PermissionManager.GetByUserId(RefId);
 
-                return View("~/Views/Hospital/AllForms/AddIPD.cshtml", new MainModel { PermissionList = itemnew.PermissionList, Login = itemnew.Login, Pathology_OPD_Main_Details = itemnew.Pathology_OPD_Main_Details, Service_type_MasterList = itemnew.Service_type_MasterList, IPD_Main_Details=itemnew.IPD_Main_Details });
+                return View("~/Views/Hospital/AllForms/AddIPD.cshtml", new MainModel { PermissionList = itemnew.PermissionList, Login = itemnew.Login, Pathology_OPD_Main_Details = itemnew.Pathology_OPD_Main_Details, Service_type_MasterList = itemnew.Service_type_MasterList, IPD_Main_Details = itemnew.IPD_Main_Details });
             }
             else
                 return RedirectToAction("LogIn", "Hospital");
@@ -1524,12 +1525,12 @@ namespace Hospital_Management.Controllers
 
             obj.MainId = Guid.NewGuid();
 
-            itemnew.Service_type_MasterList = Service_type_MasterManager.GetAll_Service("OPD");
+            itemnew.Service_type_MasterList = Service_type_MasterManager.GetAll_Service_GetById("IPD", Id);
             obj.Patient_id = Guid.Parse(coll["drpplist"]);
             obj.Doc_Id = Guid.Parse(coll["drpdlist"]);
             obj.Payment_Mode = coll["drppayment"];
-            obj.Admission_Date = DateTime.Now;
-            obj.Discharge_Date = DateTime.Now;
+            obj.Admission_Date = Convert.ToDateTime(coll["Admssiondate"]);
+            obj.Discharge_Date = Convert.ToDateTime(coll["dischargedate"]);
             obj.Advance = decimal.Parse(coll["advance_amount"]);
             obj.Additonal_discount = decimal.Parse(coll["Additonal_discount"]);
             obj.TCS = decimal.Parse(coll["tcs_amount"]);
@@ -1549,10 +1550,9 @@ namespace Hospital_Management.Controllers
 
                 foreach (var item in itemnew.Service_type_MasterList)
                 {
-                    string abc = coll["chkapprove_" + item.ServiceId];
+
                     ViewBag.nid = Guid.NewGuid();
                     int unt = int.Parse(coll["unit_" + item.ServiceId]);
-
                     Service_type_SubDetails obj1 = new Service_type_SubDetails();
                     if (Id != Guid.Empty)
                     {
@@ -1634,7 +1634,7 @@ namespace Hospital_Management.Controllers
                 }
                 TempData[Constant.INFO_MESSAGE] = "Record Added Successfully.";
             }
-            return Redirect("IPD?Id=00000000-0000-0000-0000-000000000000");
+            return RedirectToAction("IPD");
         }
 
         public ActionResult IPD_Pending()
@@ -1643,7 +1643,7 @@ namespace Hospital_Management.Controllers
             {
                 MainModel itemnew = new MainModel();
                 //Guid UserId = new Guid();
-                itemnew.Pathology_OPD_Main_DetailsList = Pathology_OPD_Main_DetailsManager.GetAll_Pending("Pending").ToList();
+                itemnew.IPD_Main_DetailsList = IPD_Main_DetailsManager.GetAll().Where(x => x.Status == "Pending").ToList();
                 string sid = Request.Cookies["hospital@#123"].Value;
                 string[] AllArray = sid.Split(',');
                 ViewBag.UserName = AllArray[1];
@@ -1663,7 +1663,7 @@ namespace Hospital_Management.Controllers
                 itemnew.PermissionList = PermissionManager.GetByUserId(RefId);
 
                 ViewBag.status = "pending";
-                return View("~/Views/Hospital/IPD_Main.cshtml", new MainModel { PermissionList = itemnew.PermissionList, Login = itemnew.Login, Pathology_OPD_Main_DetailsList = itemnew.Pathology_OPD_Main_DetailsList, Pathology_OPD_Main_Details = itemnew.Pathology_OPD_Main_Details });
+                return View("~/Views/Hospital/IPD_Main.cshtml", new MainModel { PermissionList = itemnew.PermissionList, Login = itemnew.Login, IPD_Main_DetailsList = itemnew.IPD_Main_DetailsList, Pathology_OPD_Main_Details = itemnew.Pathology_OPD_Main_Details });
             }
             else
                 return RedirectToAction("LogIn", "Hospital");

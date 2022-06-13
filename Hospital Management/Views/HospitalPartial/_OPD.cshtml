@@ -22,8 +22,6 @@
         <tr>
             <th style="width:5%;">S.No. </th>
             <th style="width:20%;"> Patient Name </th>
-            @*<th style="width:20%;"> Patient Id </th>*@
-
             <th style="width:20%;"> OPD No </th>
             <th style="width:20%;"> Doctor </th>
             <th style="width:20%;"> Payment Status </th>
@@ -46,8 +44,6 @@
         <tr class="odd gradeX">
             <td> @SNo </td>
             <td> @item.Patient_Name    @item.Patient_UID </td>
-            @*<td> @item.Patient_UID </td>*@
-
             <td> @item.OP_No </td>
             <td> @item.Doc_Name </td>
             <td>
@@ -75,8 +71,6 @@
                 <a href="~/Report/OPD_Receipt.aspx?Id=@item.MainId" title="Print" target="_blank" onclick="return confirm('Do you want to See Report?');" class="btn btn-bg-success btn-sm text-white">
                     Print
                 </a>
-
-                
 
                 @if ((item.Status == "Complete" || item.Status == "Pending") && ViewBag.Role == "Admin")
                 {

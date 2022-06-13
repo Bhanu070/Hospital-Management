@@ -142,21 +142,21 @@ text-decoration: underline overline; font-family: Georgia, serif" target="_blank
                     <div class="input-group">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-rupee-sign"></i></span></div>
                         <input type="number" placeholder="Additional Discount" class="form-control" id="Additonal_discount" name="Additonal_discount"
-                               onchange="AdditionalDiscount()" value="@Model.Pathology_OPD_Main_Details.Additonal_discount" required />
+                               onchange="AdditionalDiscount()" value="@Model.IPD_Main_Details.Additonal_discount" required />
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <label> Advance Amount <span style="color:red;">*</span>:</label>
                     <div class="input-group">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-rupee-sign"></i></span></div>
-                        <input type="number" placeholder="Final Payment" class="form-control" id="advance_amount" name="advance_amount" readonly value="@Model.IPD_Main_Details.Net_total_amount" required />
+                        <input type="number" placeholder="Final Payment" class="form-control" id="advance_amount" name="advance_amount" value="@Model.IPD_Main_Details.Advance" required />
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <label> TCS Amount <span style="color:red;">*</span>:</label>
                     <div class="input-group">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-rupee-sign"></i></span></div>
-                        <input type="number" placeholder="Final Payment" class="form-control" id="tcs_amount" name="tcs_amount" readonly value="@Model.IPD_Main_Details.Net_total_amount" required />
+                        <input type="number" placeholder="Final Payment" class="form-control" id="tcs_amount" name="tcs_amount" value="@Model.IPD_Main_Details.TCS" required />
                     </div>
                 </div>
                 <div class="col-lg-3">
@@ -168,7 +168,22 @@ text-decoration: underline overline; font-family: Georgia, serif" target="_blank
                 </div>
 
             </div>
-
+            <div class="form-group row">
+                <div class="col-lg-3" id="div_amt">
+                    <label> Admission Date <span style="color:red;">*</span>:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-rupee-sign"></i></span></div>
+                        <input type="date" placeholder="Admission Date" class="form-control" id="Admssiondate" name="Admssiondate" value="@ViewBag.AdmisDate" required />
+                    </div>
+                </div>
+                <div class="col-lg-3" id="div_amt">
+                    <label> Discharge Date <span style="color:red;">*</span>:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-rupee-sign"></i></span></div>
+                        <input type="date" placeholder="Discharge Date" class="form-control" id="dischargedate" name="dischargedate" value="@ViewBag.DischargeDate" required />
+                    </div>
+                </div>
+            </div>
 
             <div class="form-group row">
                 <div id="Road" class="col-lg-12">
@@ -183,6 +198,8 @@ text-decoration: underline overline; font-family: Georgia, serif" target="_blank
                     </div>
                 </div>
             </div>
+
+
 
             <div class="card-body">
 
@@ -205,7 +222,7 @@ text-decoration: underline overline; font-family: Georgia, serif" target="_blank
             </div>
         }
     </div>
-</div>
+        </div>
 
 
 <script>
