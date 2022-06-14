@@ -34,3 +34,12 @@ C:\Server_UK\Hospital-Management\Hospital-Management\DataLayer\obj\Debug\DataLay
 C:\Server_UK\Hospital-Management\Hospital-Management\DataLayer\obj\Debug\DataLayer.csproj.CopyComplete
 C:\Server_UK\Hospital-Management\Hospital-Management\DataLayer\obj\Debug\DataLayer.dll
 C:\Server_UK\Hospital-Management\Hospital-Management\DataLayer\obj\Debug\DataLayer.pdb
+F:\HMS_14_6_22\DataLayer\bin\Debug\DataLayer.dll
+F:\HMS_14_6_22\DataLayer\bin\Debug\DataLayer.pdb
+F:\HMS_14_6_22\DataLayer\bin\Debug\BusinessObject.dll
+F:\HMS_14_6_22\DataLayer\bin\Debug\BusinessObject.pdb
+F:\HMS_14_6_22\DataLayer\obj\Debug\DataLayer.csprojAssemblyReference.cache
+F:\HMS_14_6_22\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
+F:\HMS_14_6_22\DataLayer\obj\Debug\DataLayer.csproj.CopyComplete
+F:\HMS_14_6_22\DataLayer\obj\Debug\DataLayer.dll
+F:\HMS_14_6_22\DataLayer\obj\Debug\DataLayer.pdb

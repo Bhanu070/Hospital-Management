@@ -177,6 +177,12 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="CR_Reports\OPD_Registration_Receipt.cs">
+      <DependentUpon>OPD_Registration_Receipt.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="CR_Reports\OPD_Receipt.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -199,6 +205,13 @@
     </Compile>
     <Compile Include="Report\IPD_Receipt.aspx.designer.cs">
       <DependentUpon>IPD_Receipt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report\OPD_Registration_Receipt.aspx.cs">
+      <DependentUpon>OPD_Registration_Receipt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report\OPD_Registration_Receipt.aspx.designer.cs">
+      <DependentUpon>OPD_Registration_Receipt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Report\OPD_Receipt.aspx.cs">
       <DependentUpon>OPD_Receipt.aspx</DependentUpon>
@@ -2426,6 +2439,7 @@
     <Content Include="login\js\main.js" />
     <Content Include="login\js\popper.min.js" />
     <Content Include="Report\IPD_Receipt.aspx" />
+    <Content Include="Report\OPD_Registration_Receipt.aspx" />
     <Content Include="Report\OPD_Receipt.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -2640,6 +2654,9 @@
     <Content Include="Views\HospitalPartial\_IPD.cshtml" />
     <Content Include="Views\HospitalPartial\_IPD_Pending.cshtml" />
     <Content Include="Views\Hospital\AllForms\AddIPD.cshtml" />
+    <Content Include="Views\Hospital\OPD_Registration.cshtml" />
+    <Content Include="Views\HospitalPartial\_OPD_Registration.cshtml" />
+    <Content Include="Views\Hospital\AllForms\AddOPD_Registration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2675,6 +2692,10 @@
     <EmbeddedResource Include="CR_Reports\IPD_Receipt.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>IPD_Receipt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CR_Reports\OPD_Registration_Receipt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>OPD_Registration_Receipt.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CR_Reports\OPD_Receipt.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

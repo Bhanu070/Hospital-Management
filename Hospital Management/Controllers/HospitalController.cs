@@ -1671,11 +1671,185 @@ namespace Hospital_Management.Controllers
         #endregion
 
 
+        //14-6-22 rahul opd registration
+
+        public ActionResult OPD_Registration()
+        {
+            if (Request.Cookies["hospital@#123"] != null)
+            {
+                MainModel itemnew = new MainModel();
+                //Guid UserId = new Guid();
+                itemnew.Pathology_OPD_Main_DetailsList = Pathology_OPD_Main_DetailsManager.GetAll().ToList();
+                string sid = Request.Cookies["hospital@#123"].Value;
+                string[] AllArray = sid.Split(',');
+                ViewBag.UserName = AllArray[1];
+                ViewBag.Role = AllArray[2];
+                ViewBag.Pic = AllArray[3];
+                ViewBag.Msg = "";
+                List<Patient_Master> PatientList = Patient_MasterManager.GetAll();
+                ViewBag.plist = new SelectList(PatientList, "Patient_Id", "Patient_Name");
+
+                List<Doctor_Master> DoctorList = Doctor_MasterManager.GetAll();
+                ViewBag.dlist = new SelectList(DoctorList, "Doc_Id", "Doc_Name");
+                ViewBag.paymentmode = new SelectList(Constant.paymentmodehospital, "Value", "Text");
+
+                Guid RefId = Guid.Empty;
+                Guid.TryParse(AllArray[0], out RefId);
+                itemnew.Login = LoginManager.GetById(RefId);
+                itemnew.PermissionList = PermissionManager.GetByUserId(RefId);
+
+                return View("~/Views/Hospital/OPD_Registration.cshtml", new MainModel { PermissionList = itemnew.PermissionList, Login = itemnew.Login, Pathology_OPD_Main_DetailsList = itemnew.Pathology_OPD_Main_DetailsList, Pathology_OPD_Main_Details = itemnew.Pathology_OPD_Main_Details });
+            }
+            else
+                return RedirectToAction("LogIn", "Hospital");
+        }
+
+        public ActionResult AddOPD_Registration(Guid Id)
+        {
+            if (Request.Cookies["hospital@#123"] != null)
+            {
+                MainModel itemnew = new MainModel();
+                //Guid UserId = new Guid();
+
+                string sid = Request.Cookies["hospital@#123"].Value;
+                string[] AllArray = sid.Split(',');
+                ViewBag.UserName = AllArray[1];
+                ViewBag.Role = AllArray[2];
+                ViewBag.Pic = AllArray[3];
+
+                List<Patient_Master> PatientList = Patient_MasterManager.GetAll();
+
+                List<Doctor_Master> DoctorList = Doctor_MasterManager.GetAll();
+
+                if (Id != Guid.Empty)
+                {
+
+                    itemnew.Service_type_MasterList = Service_type_MasterManager.GetAll_Service_GetById("OPD", Id);
+                    itemnew.Pathology_OPD_Main_Details = Pathology_OPD_Main_DetailsManager.GetById(Id);
+
+                    ViewBag.dlist = new SelectList(DoctorList, "Doc_Id", "Doc_Name", itemnew.Pathology_OPD_Main_Details.Doc_Id);
+                    ViewBag.paymentmode = new SelectList(Constant.paymentmodehospital, "Value", "Text", itemnew.Pathology_OPD_Main_Details.Payment_Mode);
+                    ViewBag.paymentstatus = new SelectList(Constant.paymentstatus, "Value", "Text", itemnew.Pathology_OPD_Main_Details.Status);
+
+                    ViewBag.TotaalAmount = itemnew.Pathology_OPD_Main_Details.Total_amount;
+                    ViewBag.TotaalDiscount = itemnew.Pathology_OPD_Main_Details.Total_deduction;
+                    ViewBag.NetAmouunt = itemnew.Pathology_OPD_Main_Details.Gross_total_amount;
+                    ViewBag.NetFinalAmount = itemnew.Pathology_OPD_Main_Details.Net_total_amount;
+                    ViewBag.TotaalNetPaid = itemnew.Pathology_OPD_Main_Details.PaidAmount;
+
+                    ViewBag.plist = new SelectList(PatientList, "Patient_Id", "Patient_Name", itemnew.Pathology_OPD_Main_Details.Patient_Id);
+                    List<Patient_Master> SubDistrictList = Patient_MasterManager.GetAll().Where(a => a.Patient_Id == itemnew.Pathology_OPD_Main_Details.Patient_Id).OrderBy(a => a.Patient_Name).ToList();
+
+                    ViewBag.buttontitle = "Update";
+                    ViewBag.Age = SubDistrictList[0].Age;
+                    ViewBag.Sex = SubDistrictList[0].Sex;
+                    ViewBag.Address = SubDistrictList[0].Address;
+                    ViewBag.PaidAmount = itemnew.Pathology_OPD_Main_Details.PaidAmount;
+                }
+                else
+                {
+                    itemnew.Service_type_MasterList = Service_type_MasterManager.GetAll_Service("OPD");
+
+                    ViewBag.dlist = new SelectList(DoctorList, "Doc_Id", "Doc_Name");
+                    ViewBag.paymentmode = new SelectList(Constant.paymentmodehospital, "Value", "Text");
+                    ViewBag.paymentstatus = new SelectList(Constant.paymentstatus, "Value", "Text");
+
+                    ViewBag.plist = new SelectList(PatientList, "Patient_Id", "Patient_Name");
+                    ViewBag.date = DateTime.Now;
+                    ViewBag.buttontitle = "Submit";
+                    ViewBag.Age = null;
+                    ViewBag.Sex = null;
+                    ViewBag.Address = null;
+                    ViewBag.PaidAmount = 0.00;
+                    ViewBag.TotaalAmount = 0.00;
+                    ViewBag.TotaalDiscount = 0.00;
+                    ViewBag.NetAmouunt = 0.00;
+                    ViewBag.NetFinalAmount = 0.00;
+                    ViewBag.TotaalNetPaid = 0.00;
+                }
+
+                Guid RefId = Guid.Empty;
+                Guid.TryParse(AllArray[0], out RefId);
+                itemnew.Login = LoginManager.GetById(RefId);
+                itemnew.PermissionList = PermissionManager.GetByUserId(RefId);
+
+                return View("~/Views/Hospital/AllForms/AddOPD_Registration.cshtml", new MainModel { PermissionList = itemnew.PermissionList, Login = itemnew.Login, Pathology_OPD_Main_Details = itemnew.Pathology_OPD_Main_Details, Service_type_MasterList = itemnew.Service_type_MasterList });
+            }
+            else
+                return RedirectToAction("LogIn", "Hospital");
+        }
+
+        public ActionResult SaveOPDRegistration(FormCollection coll)
+        {
+
+            MainModel itemnew = new MainModel();
+            string sid = Request.Cookies["hospital@#123"].Value;
+            string[] AllArray = sid.Split(',');
+            ViewBag.UserName = AllArray[1];
+            ViewBag.Role = AllArray[2];
+            ViewBag.Pic = AllArray[3];
+
+            ViewBag.Msg = (TempData[Constant.INFO_MESSAGE] != null ? TempData[Constant.INFO_MESSAGE] : string.Empty).ToString();
+            TempData[Constant.INFO_MESSAGE] = "";
+            ViewBag.TypeCss = "success";
+            ViewBag.MsgTitle = "Success!";
+            Guid Id = Guid.Empty;
+            Guid.TryParse(coll["Id"], out Id);
+            Pathology_OPD_Main_Details obj = new Pathology_OPD_Main_Details();
+            if (Id != Guid.Empty)
+            {
+                Pathology_OPD_Main_Details oldobj = Pathology_OPD_Main_DetailsManager.GetById(Id);
+                if (oldobj != null)
+                    obj = oldobj;
+            }
+
+            obj.MainId = Guid.NewGuid();
 
 
+            //itemnew.Service_type_MasterList = Service_type_MasterManager.GetAll_All().Where(a => a.ServiceType == "OPD").OrderBy(a => a.ServiceName).ToList(); ;
+            itemnew.Service_type_MasterList = Service_type_MasterManager.GetAll_Service("OPD");
 
+            //itemnew.Service_type_Master = Service_type_MasterManager.GetById(ViewBag.sid);
+            //obj.Service_type = itemnew.Service_type_Master.ServiceType;
+            obj.Service_type = "OPD";
+            obj.Patient_Id = Guid.Parse(coll["drpplist"]);
+            obj.Doc_Id = Guid.Parse(coll["drpdlist"]);
+            obj.Payment_Mode = "";// coll["drppayment"];
+            obj.Reciept_Date = DateTime.Now;
 
+            obj.Total_amount = 0;// decimal.Parse(coll["Total_amount"]);
+            obj.Total_deduction = 0;// decimal.Parse(coll["Total_deduction"]);
+            obj.Gross_total_amount = 0;// decimal.Parse(coll["Gross_total_amount"]);
+            obj.Additonal_discount = 0;//  decimal.Parse(coll["Additonal_discount"]);
+            obj.Net_total_amount = 0;// decimal.Parse(coll["Net_total_amount"]);
+            obj.Remarks = "Remarks";// coll["Remarks"];
+            obj.Status = "Pending";// coll["drppstatus"];
+            obj.extra = Convert.ToInt32(coll["extra"]).ToString();
+            obj.extra1 = "extra1";
+            obj.extra2 = "extra2";
 
+            if (Id != Guid.Empty)
+            {
+                obj.MainId = Id;
+                obj.UpdatedBy = ViewBag.UserName;
+                obj.UpdatedOn = DateTime.Now;
+                Pathology_OPD_Main_DetailsManager.Update(obj);
+              //serviceforeachstart if
+                Service_type_SubDetailsManager.FinalUpdate(Id);
+                TempData[Constant.INFO_MESSAGE] = "Record Updated Successfully";
+            }
+            else
+            {
+                obj.MainId = obj.MainId;
+                obj.CreatedBy = obj.UpdatedBy = ViewBag.UserName;
+                obj.CreatedOn = obj.UpdatedOn = DateTime.Now;
+               // Pathology_OPD_Main_DetailsManager.Add(obj);
+                //serviceforeachstart end
+                TempData[Constant.INFO_MESSAGE] = "Record Added Successfully.";
+            }
+            return RedirectToAction("OPD_Registration", "Hospital");
+
+        }
 
     }
 }

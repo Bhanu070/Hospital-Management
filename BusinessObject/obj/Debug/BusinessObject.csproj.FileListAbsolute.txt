@@ -15,3 +15,9 @@ C:\Server_UK\Hospital-Management\Hospital-Management\BusinessObject\bin\Debug\Bu
 C:\Server_UK\Hospital-Management\Hospital-Management\BusinessObject\obj\Debug\BusinessObject.csproj.CoreCompileInputs.cache
 C:\Server_UK\Hospital-Management\Hospital-Management\BusinessObject\obj\Debug\BusinessObject.dll
 C:\Server_UK\Hospital-Management\Hospital-Management\BusinessObject\obj\Debug\BusinessObject.pdb
+F:\HMS_14_6_22\BusinessObject\bin\Debug\BusinessObject.dll
+F:\HMS_14_6_22\BusinessObject\bin\Debug\BusinessObject.pdb
+F:\HMS_14_6_22\BusinessObject\obj\Debug\BusinessObject.csprojAssemblyReference.cache
+F:\HMS_14_6_22\BusinessObject\obj\Debug\BusinessObject.csproj.CoreCompileInputs.cache
+F:\HMS_14_6_22\BusinessObject\obj\Debug\BusinessObject.dll
+F:\HMS_14_6_22\BusinessObject\obj\Debug\BusinessObject.pdb

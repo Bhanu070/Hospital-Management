@@ -1,0 +1,43 @@
+﻿@model Hospital_Management.Models.MainModel
+@{
+    ViewBag.Title = "OPD Registration";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card card-custom">
+    <div class="alert font-size-h3 text-center" style="background-color:#2ac9bb; color:white; font-family: Georgia, serif">
+         OPD Registration
+    </div>
+    @if (ViewBag.status == "pending")
+    {
+
+    }
+
+    else
+    {
+        <div class="card-toolbar text-right">
+            <a href="/Hospital/AddOPD_Registration?Id=@Guid.Empty" class="btn btn-success btn-sm font-weight-bolder mr-2 text-right" style="background-color:#2ac9bb; color:white;">
+                <i class="fa fa-plus" style=" color:white;"></i>
+                OPD Registration
+            </a>
+        </div>
+    }
+
+
+
+
+
+
+    <div class="card-body">
+        @if (ViewBag.status == "pending")
+        {
+            { Html.RenderPartial("~/Views/HospitalPartial/_OPD_Pending.cshtml", @Model); }
+        }
+        else
+        {
+            { Html.RenderPartial("~/Views/HospitalPartial/_OPD_Registration.cshtml", @Model); }
+        }
+    </div>
+
+</div>
+

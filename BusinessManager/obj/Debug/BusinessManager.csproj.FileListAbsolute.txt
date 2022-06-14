@@ -42,3 +42,14 @@ C:\Server_UK\Hospital-Management\Hospital-Management\BusinessManager\obj\Debug\B
 C:\Server_UK\Hospital-Management\Hospital-Management\BusinessManager\obj\Debug\BusinessManager.csproj.CopyComplete
 C:\Server_UK\Hospital-Management\Hospital-Management\BusinessManager\obj\Debug\BusinessManager.dll
 C:\Server_UK\Hospital-Management\Hospital-Management\BusinessManager\obj\Debug\BusinessManager.pdb
+F:\HMS_14_6_22\BusinessManager\bin\Debug\BusinessManager.dll
+F:\HMS_14_6_22\BusinessManager\bin\Debug\BusinessManager.pdb
+F:\HMS_14_6_22\BusinessManager\bin\Debug\BusinessObject.dll
+F:\HMS_14_6_22\BusinessManager\bin\Debug\DataLayer.dll
+F:\HMS_14_6_22\BusinessManager\bin\Debug\BusinessObject.pdb
+F:\HMS_14_6_22\BusinessManager\bin\Debug\DataLayer.pdb
+F:\HMS_14_6_22\BusinessManager\obj\Debug\BusinessManager.csprojAssemblyReference.cache
+F:\HMS_14_6_22\BusinessManager\obj\Debug\BusinessManager.csproj.CoreCompileInputs.cache
+F:\HMS_14_6_22\BusinessManager\obj\Debug\BusinessManager.csproj.CopyComplete
+F:\HMS_14_6_22\BusinessManager\obj\Debug\BusinessManager.dll
+F:\HMS_14_6_22\BusinessManager\obj\Debug\BusinessManager.pdb
